@@ -39,6 +39,10 @@ oak = User("oak","chatlaong","kingoak11@gmail.com","oakoak22","oak08293242","082
 
 account_list.add_account(arm)
 account_list.add_account(ball)
-account_list.add_account(oak)
+account_list.add_account(oak)'''
 
-#print(account_list.check_user("oakoak22","oak08293248"))
+
+account_list = AccountList()
+create_user(user_list = account_list._account)
+
+print(account_list.check_user("tuplnwza2","tup00203294"))

@@ -19,7 +19,6 @@ class Dormitory():
         self.__Fac  = None
         self.__Roomlist = RoomCatalog()
 
-
     def get__dor_name(self):
         return self.__dor_name
     
@@ -88,7 +87,6 @@ class Dormitory():
         return self.__Roomlist.get_room_list_id()
     def get_room_rental_list(self):
         return self.__Roomlist.get_room_rental_list()
-
     def search_fac(self, facility):
         search = Dormitory.get_facility(self)
         # search = "self.__Fac.get_" + facility + "()"
