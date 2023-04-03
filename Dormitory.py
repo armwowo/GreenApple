@@ -72,13 +72,16 @@ class Dormitory():
 
     def create_room(self,ID,type,status,rental,room_facility):
         pass
+
     def add_facility(self,pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking):
         self.__Fac = Facility(pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking)
+
 
     # def search_fac(self, facility):
     #     search = "self.Fac.get_" + facility + "()"
     #     return eval(search)
     
+
     def add_roomlist(self,room_id,room_rental,room_status,room_fac):
         self.__Roomlist.create_room(room_id,room_rental,room_status,room_fac)
     def get_roomlist(self):

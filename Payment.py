@@ -6,8 +6,7 @@ class Payment:
 
     def get_detail_reserved(self):
         pass
-    
-    def get_detail_creaditpayment(self):
+    def get_detail_creditpayment(self):
         pass
     
     def get_detail_debitpayment(self):
