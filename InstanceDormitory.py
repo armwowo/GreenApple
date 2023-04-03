@@ -1,5 +1,5 @@
 Dormitory = {
-    jia_jia_place:{
+    "jia_jia_place":{
         "dorm_name":'Jia Jia Place',
         "address":'Soi Hormai',
         "detail":'-',
@@ -12,7 +12,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Vorachot',
         },
-    sabai_place:{
+    "sabai_place":{
         "dorm_name":'Sabai Place',
         "address":'Soi V Condo',
         "detail":'-',
@@ -25,7 +25,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Hom',
         },
-    aj_park:{
+    "aj_park":{
         "dorm_name":'Aj Park',
         "address":'Soi Aj',
         "detail":'-',
@@ -38,7 +38,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Oak',
         },
-    hor_nai:{
+    "hor_nai":{
         "dorm_name":'Hornai',
         "address":'Soi Hornai',
         "detail":'-',
@@ -51,7 +51,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Ball',
         },
-    rnp_place:{
+    "rnp_place":{
         "dorm_name":'RNP Place',
         "address":'Soi RNP',
         "detail":'-',
@@ -64,7 +64,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Noon',
         },
-    v_condo:{
+    "v_condo":{
         "dorm_name":'V Condo',
         "address":'Soi V Condo',
         "detail":'-',
@@ -77,7 +77,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Boom',
         },
-    u_place:{
+    "u_place":{
         "dorm_name":'U Place',
         "address":'Soi RNP',
         "detail":'-',
@@ -90,7 +90,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Arm',
         },
-   papamama:{
+   "papamama":{
         "dorm_name":'PapaMama',
         "address":'Soi Hormai',
         "detail":'-',
@@ -103,7 +103,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Pookie',
         },
-    hor_dum:{
+    "hor_dum":{
         "dorm_name":'Hor Dum',
         "address":'Soi Hordum',
         "detail":'-',

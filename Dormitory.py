@@ -1,8 +1,8 @@
 from Facility import Facility
+from RoomCatalog import RoomCatalog
 
 class Dormitory():
-    def __init__(self,dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name,
-                 pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking):
+    def __init__(self,dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name):
         self.__dor_name = dor_name
         self.__address = address
         self.__detail = detail
@@ -16,7 +16,8 @@ class Dormitory():
         self.__owner_name = owner_name
         self.__review = []
         #self.Fac = Facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0) #test
-        self.__Fac  = Facility(pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking)
+        self.__Fac  = None
+        self.__Roomlist = RoomCatalog()
 
     def get__dor_name(self):
         return self.__dor_name
@@ -72,11 +73,23 @@ class Dormitory():
     def create_room(self,ID,type,status,rental,room_facility):
         pass
 
+    def add_facility(self,pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking):
+        self.__Fac = Facility(pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking)
+
 
     # def search_fac(self, facility):
     #     search = "self.Fac.get_" + facility + "()"
     #     return eval(search)
     
+
+    def add_roomlist(self,room_id,room_rental,room_status,room_fac):
+        self.__Roomlist.create_room(room_id,room_rental,room_status,room_fac)
+    def get_roomlist(self):
+        return self.__Roomlist.get_room_list()
+    def get_room_list_id (self):
+        return self.__Roomlist.get_room_list_id()
+    def get_room_rental_list(self):
+        return self.__Roomlist.get_room_rental_list()
     def search_fac(self, facility):
         search = Dormitory.get_facility(self)
         # search = "self.__Fac.get_" + facility + "()"
