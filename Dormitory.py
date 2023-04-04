@@ -19,6 +19,7 @@ class Dormitory():
         self.__Fac  = None
         self.__Roomlist = RoomCatalog()
 
+
     def get__dor_name(self):
         return self.__dor_name
     
@@ -63,7 +64,7 @@ class Dormitory():
 
     def get_room_catalog(self,):
         pass
-
+  
     def get_facility(self):
         return self.__Fac
 
@@ -72,24 +73,23 @@ class Dormitory():
 
     def create_room(self,ID,type,status,rental,room_facility):
         pass
-
     def add_facility(self,pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking):
         self.__Fac = Facility(pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking)
-
 
     # def search_fac(self, facility):
     #     search = "self.Fac.get_" + facility + "()"
     #     return eval(search)
     
-
     def add_roomlist(self,room_id,room_rental,room_status,room_fac):
         self.__Roomlist.create_room(room_id,room_rental,room_status,room_fac)
+        return "success"
     def get_roomlist(self):
         return self.__Roomlist.get_room_list()
     def get_room_list_id (self):
         return self.__Roomlist.get_room_list_id()
     def get_room_rental_list(self):
         return self.__Roomlist.get_room_rental_list()
+
     def search_fac(self, facility):
         search = Dormitory.get_facility(self)
         # search = "self.__Fac.get_" + facility + "()"

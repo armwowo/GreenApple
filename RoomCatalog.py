@@ -28,6 +28,7 @@ class RoomCatalog():
         for id in self.__room_list:
             list_id.append(id.get_room_id())
         return list_id
+
     def save_to_room_list(self,):
         pass
 
