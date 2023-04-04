@@ -34,6 +34,14 @@ class DormitoryCatalog:
             else :pass
         return temp_list
     
+    def search_dor_name(self,dor_name):
+        temp_list = []
+        for dormitory in self.__Dormitory_listmain:
+            if dormitory.get__dor_name() == dor_name:
+                temp_list.append(dormitory.get__dor_name())
+            else :pass   
+        return temp_list
+
     def get_dormitory_listmain(self):
         return self.__Dormitory_listmain
 
