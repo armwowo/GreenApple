@@ -7,6 +7,8 @@ class User:
         self._username = user_name
         self._password = password
         self._userphone = user_phone
+        self.__reservation = []
+        self.__reserved = []
     def add_to_list(User):
         pass
     
@@ -27,6 +29,21 @@ class User:
     
     def get_userphone(self):
         return self._userphone
+    
+    def add_reservation(self,reservation):
+        self.__reservation.append(reservation)
+        return "success"
+    
+    def add_reserved(self,room_reserved):
+        self.__reserved.append(room_reserved)
+        return "success"
+    
+    @property
+    def reservation_list(self):
+        return self.__reservation
+    @property
+    def reserved_list(self):
+        return self.__reserved
     
 def create_user(user_list):
     for key,value in InstanceUser.user_info.items() :

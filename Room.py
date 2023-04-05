@@ -8,8 +8,13 @@ class Room:
     def get_name_dormitory():
         pass
 
-    def get_room_id(self):
+    @property
+    def room_id(self):
         return self.__room_id
-    
-    def get_room_rental(self):
+    @property
+    def room_rental(self):
         return self.__room_rental
+    
+    def set_room_status(self,state):
+        self.__room_status = state
+        return self.__room_status

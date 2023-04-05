@@ -1,4 +1,5 @@
-from room import Room
+from Room import Room
+from Payment import Payment
 
 class RoomReserved(Room):
     def __init__(self,date_reserved,end,room_id,room_rental,room_status,room_fac ):
@@ -7,3 +8,7 @@ class RoomReserved(Room):
         self.__end  = end
     def get_reservation():
         pass
+    
+    @property
+    def end(self):
+        return  self.__end

@@ -9,7 +9,7 @@ class RoomCatalog():
     def get_room_rental_list(self):
         rental_list = []
         for room in self.__room_list:
-            rental_list.append(room.get_room_rental())
+            rental_list.append(room.room_rental)
         return rental_list
     def get_room_status_list(self):
         pass
@@ -26,7 +26,7 @@ class RoomCatalog():
     def get_room_list_id(self):
         list_id = []
         for id in self.__room_list:
-            list_id.append(id.get_room_id())
+            list_id.append(id.room_id)
         return list_id
     def save_to_room_list(self,):
         pass
