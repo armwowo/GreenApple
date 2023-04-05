@@ -1,5 +1,5 @@
-from Room import Room
-from Payment import Payment
+from Backend.Room import Room
+from Backend.Payment import Payment
 
 class RoomReserved(Room):
     def __init__(self,date_reserved,end,room_id,room_rental,room_status,room_fac ):

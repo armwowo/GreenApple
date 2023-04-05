@@ -1,6 +1,6 @@
-from Room import Room
-from Payment import Payment
-from RoomReserved import RoomReserved
+from Backend.Room import Room
+from Backend.Payment import Payment
+from Backend.RoomReserved import RoomReserved
 
 class Reservation(Room):
     def __init__(self,check_in,name,email,phone_number,Dor_name,room_id,room_rental,room_status,room_fac):

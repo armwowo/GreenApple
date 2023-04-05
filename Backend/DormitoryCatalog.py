@@ -1,5 +1,5 @@
-from Facility import Facility
-from Dormitory import Dormitory
+from Backend.Facility import Facility
+from Backend.Dormitory import Dormitory
 
 class DormitoryCatalog:
     def __init__(self):
