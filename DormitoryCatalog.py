@@ -29,9 +29,11 @@ class DormitoryCatalog:
         temp_list = []
         for dormitory in self.__Dormitory_listmain:
             if ((minp <=min(dormitory.get_room_rental_list()) and min(dormitory.get_room_rental_list())<=maxp ) or 
-                (maxp >= max(dormitory.get_room_rental_list()) and minp <= max(dormitory.get_room_rental_list()))):
+                    (maxp >= max(dormitory.get_room_rental_list()) and minp <= max(dormitory.get_room_rental_list()))):
                 temp_list.append(dormitory.get__dor_name())
             else : pass
+            if temp_list == []:
+                return "Not Found"
         return temp_list
     
     def get_dormitory_listmain(self):
