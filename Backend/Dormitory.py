@@ -1,5 +1,6 @@
-from Facility import Facility
-from RoomCatalog import RoomCatalog
+from Backend.Facility import Facility
+from Backend.RoomCatalog import RoomCatalog
+from Backend.Room import Room 
 
 class Dormitory():
     def __init__(self,dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name):
@@ -17,7 +18,7 @@ class Dormitory():
         self.__review = []
         #self.Fac = Facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0) #test
         self.__Fac  = None
-        self.__Roomlist = RoomCatalog()
+        self._Roomlist = RoomCatalog()
 
     def get__dor_name(self):
         return self.__dor_name
@@ -53,7 +54,10 @@ class Dormitory():
         return self.__owner_name
     
     def get__review(self):
-        return self.__review 
+        return self.__review
+    
+    #def add_roomlist(self,roomlist):
+        #self._Roomlist = roomlist
        
     def find_facility(self,facility):
         pass
@@ -70,7 +74,7 @@ class Dormitory():
     def check_rental(self,):
         pass
 
-    def create_room(self,ID,type,status,rental,room_facility):
+    def create_room(self,room_id,room_rental,room_status):
         pass
 
     def add_facility(self,pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking):
@@ -82,8 +86,8 @@ class Dormitory():
     #     return eval(search)
     
 
-    def add_roomlist(self,room_id,room_rental,room_status,room_fac):
-        self.__Roomlist.create_room(room_id,room_rental,room_status,room_fac)
+    '''def add_roomlist(self,room_id,room_rental,room_status):
+        self.__Roomlist.create_room(room_id,room_rental,room_status)'''
     def get_roomlist(self):
         return self.__Roomlist.get_room_list()
     def get_room_list_id (self):

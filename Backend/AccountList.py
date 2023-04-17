@@ -1,4 +1,4 @@
-from User import User
+from Backend.User import User
 
 class AccountList:
     def __init__(self):
