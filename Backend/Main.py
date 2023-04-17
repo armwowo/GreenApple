@@ -3,6 +3,8 @@ from Dormitory import Dormitory
 from DormitoryCatalog import DormitoryCatalog
 from AccountList import AccountList
 from User import User
+from fastapi import FastAPI
+from typing import Union
 
 jia_jia = Dormitory("jia_jia","soi hormai","","0828932414",8,18,100,False,"","","Arm")
 sabaiplace = Dormitory("sabaiplace","Vcon","","4905293028",8,18,9,"","",100,"ball")
@@ -43,3 +45,11 @@ account_list.add_account(ball)
 account_list.add_account(oak)
 
 #print(account_list.check_user("oakoak22","oak08293248"))
+
+
+app = FastAPI()
+
+
+@app.get("/searchDorName")
+def searchDorName():
+    return {"Hello": "World"}
