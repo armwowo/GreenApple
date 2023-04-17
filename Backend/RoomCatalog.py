@@ -35,7 +35,7 @@ class RoomCatalog():
         available_room = []
         for room in self._room_list:
             if room.get_room_status() == 1:
-                available_room.append(room.get_room_id())
+                available_room.append(room)
         return available_room
 
 

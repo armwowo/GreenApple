@@ -4,7 +4,7 @@ from Backend.Room import Room
 
 class Dormitory():
     def __init__(self,dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name):
-        self.__dor_name = dor_name
+        self._dor_name = dor_name
         self.__address = address
         self.__detail = detail
         self.__phone = phone
@@ -21,7 +21,7 @@ class Dormitory():
         self._Roomlist = RoomCatalog()
 
     def get__dor_name(self):
-        return self.__dor_name
+        return self._dor_name
     
     def get__address(self):
         return self.__address
@@ -98,3 +98,6 @@ class Dormitory():
         search = Dormitory.get_facility(self)
         # search = "self.__Fac.get_" + facility + "()"
         return eval("search."+"get_"+facility+"()")
+    
+    def add_review(self,review):
+        self.__review.append(review)
