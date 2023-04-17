@@ -1,5 +1,6 @@
-from Facility import Facility
-from RoomCatalog import RoomCatalog
+from Backend.Facility import Facility
+from Backend.RoomCatalog import RoomCatalog
+import Backend.InstanceDormitory
 
 class Dormitory():
     def __init__(self,dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name):
@@ -94,3 +95,19 @@ class Dormitory():
         search = Dormitory.get_facility(self)
         # search = "self.__Fac.get_" + facility + "()"
         return eval("search."+"get_"+facility+"()")
+    
+
+def create_dormitory(dormitory_list):
+    for key,value in Backend.InstanceDormitory.Dormitory.items() :
+        dormitory = Dormitory(dor_name=Backend.InstanceDormitory.Dormitory[key]["dorm_name"],
+                            address=Backend.InstanceDormitory.Dormitory[key]["address"],
+                            detail=Backend.InstanceDormitory.Dormitory[key]["detail"],
+                            phone=Backend.InstanceDormitory.Dormitory[key]["phone"],
+                            electric=Backend.InstanceDormitory.Dormitory[key]["electric"],
+                            water=Backend.InstanceDormitory.Dormitory[key]["water"],
+                            service_fee=Backend.InstanceDormitory.Dormitory[key]["service_fee"],
+                            internet=Backend.InstanceDormitory.Dormitory[key]["internet"],
+                            dormitory_picture=Backend.InstanceDormitory.Dormitory[key]["picture"],
+                            term_of_service=Backend.InstanceDormitory.Dormitory[key]["term_of_service"],
+                            owner_name=Backend.InstanceDormitory.Dormitory[key]["owner_name"])
+        dormitory_list.append(dormitory)

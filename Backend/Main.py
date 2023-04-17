@@ -1,8 +1,8 @@
-from Backend.Facility import Facility
-from Backend.Dormitory import Dormitory
-from Backend.DormitoryCatalog import DormitoryCatalog
-from Backend.AccountList import AccountList
-from Backend.User import User
+from Facility import Facility
+from Dormitory import Dormitory
+from DormitoryCatalog import DormitoryCatalog
+from AccountList import AccountList
+from User import User
 from fastapi import FastAPI
 
 jia_jia = Dormitory("jia_jia","soi hormai","","0828932414",8,18,100,False,"","","Arm")

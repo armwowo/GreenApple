@@ -1,4 +1,4 @@
-User_info = {
+user_info = {
     "User1":{
     "name" : "John",
     "last name": "Smith",
