@@ -4,6 +4,8 @@ from Backend.DormitoryCatalog import DormitoryCatalog
 from Backend.AccountList import AccountList
 from Backend.User import User
 from fastapi import FastAPI
+from Backend.Room import Room
+from Backend.RoomCatalog import RoomCatalog
 
 jia_jia = Dormitory("jia_jia","soi hormai","","0828932414",8,18,100,False,"","","Arm")
 sabaiplace = Dormitory("sabaiplace","Vcon","","4905293028",8,18,9,"","",100,"ball")
@@ -32,7 +34,7 @@ Dorcat.add_dormitory_main(boomboom_place)
 # print(Dorcat.search_fac_dor("pets"))
 # print(Dorcat.search_fac_dor("smoking"))
 # print(Dorcat.search_maxmin_price(4000,6600))
-""""
+
 account_list = AccountList()
 arm = User("arm","vor","vorarm23@gmail.com","armvor00","armmee999","0929349512")
 ball = User("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376")
@@ -42,16 +44,12 @@ account_list.add_account(arm)
 account_list.add_account(ball)
 account_list.add_account(oak)
 
-
-account_list = AccountList()
-create_user(user_list = account_list._account)
-
-print(account_list.check_user("tuplnwza2","tup00203294"))"""
-
-
+roomlist = RoomCatalog()
 
 
 app = FastAPI()
+
+ 
 
 @app.get("/Search_maxmin_price")
 async def search_maxmin_price(minprice : int , maxprice : int):
@@ -60,4 +58,15 @@ async def search_maxmin_price(minprice : int , maxprice : int):
     return {"Dormitory": Dorm}
 
 
+@app.post("/Register")
+async def add_user( Name : str , Lastname : str , Email : str , User_name : str , Password : str ,User_phone : str):
+    new_user = User( Name , Lastname , Email , User_name , Password , User_phone)
+    account_list.add_account(new_user)
 
+@app.get("/account list")
+async def get_userlist():
+    return {"Account" :account_list._account} 
+
+@app.get("/View Detail")
+async def get_detail():
+    return {"Detail" :Dorcat.__Dormitory_listmain} 
