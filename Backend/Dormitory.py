@@ -67,7 +67,7 @@ class Dormitory():
   
     def get_facility(self):
         return self.__Fac
-
+    
     def check_rental(self,):
         pass
 
@@ -80,6 +80,7 @@ class Dormitory():
     #     search = "self.Fac.get_" + facility + "()"
     #     return eval(search)
     
+
     def add_roomlist(self,room_id,room_rental,room_status,room_fac):
         self.__Roomlist.create_room(room_id,room_rental,room_status,room_fac)
         return "success"
