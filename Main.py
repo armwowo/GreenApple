@@ -68,5 +68,8 @@ async def get_userlist():
     return {"Account" :account_list._account} 
 
 @app.get("/View Detail")
-async def get_detail():
-    return {"Detail" :Dorcat.__Dormitory_listmain} 
+async def get_detail( dormitory_name : str):
+    dict = Dorcat.view_detail_dormitory(dormitory_name)
+    return {"Detail" : dict} 
+
+
