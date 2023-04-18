@@ -28,3 +28,13 @@ async def add_dormitory(dormitory : dict = Body(...)):
 def searchFacilities(fac :str):
     list_dormitory = Dorcat.search_fac_dor(fac)
     return {"DormitoryCatalog": list_dormitory}
+
+@app.get("/view-reservation/{username}")
+def viewReservation(username :str):
+    account = account_list.find_data_user(username)
+    return {"account": str(account.reservation)}
+    # return account
+
+# @app.get("/view-reservation")
+# def viewReservation():
+#     return {"Account List": account_list.get_account()}

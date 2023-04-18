@@ -9,6 +9,12 @@ class RoomReserved(Room):
     def get_reservation():
         pass
     
+    def get_details_roomreserved(self):
+        details = {"start reserved":self.__date_reserved,
+                   "end reserved":self.__end,
+                   "room id":self.__room_id}
+        return details
+
     @property
     def end(self):
         return  self.__end

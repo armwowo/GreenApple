@@ -31,7 +31,7 @@ class User:
         return self._userphone
     
     def add_reservation(self,reservation):
-        self.__reservation.append(reservation)
+        self.__reservation.append(reservation.get_reservation_details())
         return "success"
     
     def add_reserved(self,room_reserved):
@@ -39,10 +39,10 @@ class User:
         return "success"
     
     @property
-    def reservation_list(self):
+    def reservation(self):
         return self.__reservation
     @property
-    def reserved_list(self):
+    def reserved(self):
         return self.__reserved
     
 def create_user(user_list):

@@ -11,8 +11,10 @@ class DormitoryCatalog:
         pass
     def check_price(self,max_price):
         pass
-    def create_dormitory(self,name,address,detail,phone,electric,warter,sevice_fee,internet,dorm_picture,term_of_service):
-        pass
+    def create_dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service):
+        dormitory = Dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service)
+        self.__Dormitory_listmain.append(dormitory)
+        return dormitory
     def add_dormitory_main(self, dormitory):
         self.__Dormitory_listmain.append(dormitory)
 

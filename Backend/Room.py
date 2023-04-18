@@ -15,6 +15,9 @@ class Room:
     def room_rental(self):
         return self.__room_rental
     
+    def get_room_status(self):
+        return self.__room_status
+
     def set_room_status(self,state):
         self.__room_status = state
         return self.__room_status

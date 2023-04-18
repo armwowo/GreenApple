@@ -23,7 +23,7 @@ class Reservation(Room):
     def create_room_reserved(self,date_reserved,end,room_id,room_rental,room_status,room_fac):
         if(self.__payment.payment_status):
             room_reserved = RoomReserved(date_reserved,end,room_id,room_rental,room_status,room_fac)
-            return "success"
+            return room_reserved
         else :return "You haven't paid yet"
 
     @property
@@ -39,6 +39,14 @@ class Reservation(Room):
     def phone_number(self):
         return self.__phone_number
     
+    def get_reservation_details(self):
+        reservation_details = {"name": self.__name , 
+                              "email" : self.__email , 
+                              "phone_number" : self.__phone_number,
+                              "room_id" : Room.room_id,
+                              "room_rental" : Room.room_rental,
+                               "check in" : self.__check_in  }
+        return reservation_details
     # def create_room_reservation(self):
     #     reservation_detail = {"name": self.__name , 
     #                           "email" : self.__email , 

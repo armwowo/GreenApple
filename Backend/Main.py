@@ -57,27 +57,29 @@ account_list = AccountList()
 arm = User("arm","vor","vorarm23@gmail.com","armvor00","armmee999","0929349512")
 ball = User("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376")
 oak = User("oak","chatlaong","kingoak11@gmail.com","oakoak22","oak08293242","0828944245")
-Oreservation = Reservation("12-12-2566","oak",oak.get_email(),oak.get_userphone(),jia_jia.get__dor_name(),1101,6500,True,None)
-
 account_list.add_account(arm)
+
+Oreservation = Reservation("12-12-2566","oak",oak.get_email(),oak.get_userphone(),jia_jia.get__dor_name(),1101,6500,True,None)
+account_list.add_account(oak)
 
 oak.add_reservation(Oreservation)
 Oreservation.create_payment(6500,"oak","kingoak11@gmail.com","0828983456")
+
 Oreservation.create_room_reserved("11-11-2566","11-11-2567",1101,6500,True,None)
 
 
 #check reservation
-# print(oak.reservation_list)
-
-
+Oakaccount = account_list.find_data_user("oakoak22")
+print(oak.reservation)
+#print(oak.reservation)
 
 #test use case register
 # print(account_list.register("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376"))
-# print(account_list.register("oodddak","chat","kingoak11@gmail.com","oak","oak08293242","0828944245"))
+# print(account_list.register("oodddak","chat","kingoak11@kmitl.ac.th","oak000","oak08293242","0828944245"))
 # print(account_list.register("oak","chatlaong","kingoak1@gmail.com","oakoak22","oak08293242","0828944245"))
 # print(account_list.register("arm","vor","vorarm23@gmail.com","armvor00","armmee999","0929349512"))
 
-# print(account_list.list_user_name())
+print(account_list.list_user_name())
 
 #test use case login
 # print(account_list.check_user("oak","oak08293242"))
@@ -85,4 +87,4 @@ Oreservation.create_room_reserved("11-11-2566","11-11-2567",1101,6500,True,None)
 
 
 #test view details dormitory
-print(Dorcat.view_detail_dormitory(jia_jia.get__dor_name()))
+# print(Dorcat.view_detail_dormitory(jia_jia.get__dor_name()))
