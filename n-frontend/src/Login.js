@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Axios from "axios";
 import "./Login.css"
+
 
 function Login() {
     const [username , setUsername] = useState("")
@@ -9,10 +11,11 @@ function Login() {
         e.preventDefault();
         console.log(username);
     }
+
     return (
         <div className="login-form-container">
             <form className="login-form" onSubmit={handleSubmit}>
-                <label className="Top">Login</label>
+                <h2 className="Top">Login</h2>
                 <label htmlFor="username">Username</label>
                 <input value={username} onChange={(e) => setUsername(e.target.value)}type="username" placeholder="Username" />
                 <label htmlFor="password">Password</label>

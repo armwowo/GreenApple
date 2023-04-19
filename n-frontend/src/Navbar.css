@@ -12,7 +12,7 @@
   }
   
   .nav {
-    background-color: #333;
+    background-color: deepskyblue;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -43,9 +43,9 @@
   }
   
   .nav li.active {
-    background-color: #555;
+    background-color: royalblue;
   }
   
   .nav li:hover {
-    background-color: #777;
+    background-color: lightskyblue;
   }

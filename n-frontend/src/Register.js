@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Axios from "axios";
 import "./Register.css"
 
 function Register() {
@@ -17,11 +18,12 @@ function Register() {
     return (
         <div className="register-form-container">
             <form className="register-form" onSubmit={handleSubmit}>
+                <h2 className="Top">Register</h2>
                 <label htmlFor="name">Name</label>
                 <input value={name} onChange={(e) => setName(e.target.value)}type="name" placeholder="Name" />
                 <label htmlFor="lastname">Lastname</label>
                 <input value={lastname} onChange={(e) => setLastname(e.target.value)}type="lastname" placeholder="Lastname" />
-                <label htmlFor="email">Lastname</label>
+                <label htmlFor="email">Email</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="Email" />
                 <label htmlFor="username">Username</label>
                 <input value={username} onChange={(e) => setUsername(e.target.value)}type="username" placeholder="Username" />
