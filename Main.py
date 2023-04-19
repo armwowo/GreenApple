@@ -72,7 +72,6 @@ async def search_maxmin_price(minprice: int, maxprice: int):
 async def add_user(Name: str, Lastname: str, Email: str, User_name: str, Password: str, User_phone: str, Role: str):
     register = account_list.register(
         Name, Lastname, Email, User_name, Password, User_phone, Role)
-    # account_list.add_account(register)
     if (type(register) == str):
         return "unsuccess"
     return {"Status": register}
