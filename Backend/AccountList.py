@@ -1,5 +1,6 @@
 from Backend.User import User
 import re
+from Backend.Owner import Owner
 
 class AccountList:
     def __init__(self):
@@ -16,7 +17,7 @@ class AccountList:
                 return "Invalid password"
         return "Not match"
     
-    def register(self,name,lastname,email,user_name,password,user_phone):
+    def register(self,name,lastname,email,user_name,password,user_phone,Role):
         # update conditions register 17/4
         pattern = r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'
         regex = re.compile('[@_!#$%^&*()<>?/\|}{~:!]')
@@ -29,7 +30,8 @@ class AccountList:
                     return "This username already exists in the system."
                 elif account.get_email() == email :
                     return "This email already exists in the system."
-            new_user = User(name,lastname,email,user_name,password,user_phone)
+            if( Role == "User"):new_user = User(name,lastname,email,user_name,password,user_phone)
+            elif(Role == "Owner"):new_user = Owner(name,lastname,email,user_name,password,user_phone)
             self.__account.append(new_user)
             return "success"
         else : return "Invalid password or email"

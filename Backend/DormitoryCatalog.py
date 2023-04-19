@@ -1,5 +1,6 @@
 from Backend.Facility import Facility
 from Backend.Dormitory import Dormitory
+from Backend.AccountList import AccountList
 
 class DormitoryCatalog:
     def __init__(self):
@@ -11,10 +12,13 @@ class DormitoryCatalog:
         pass
     def check_price(self,max_price):
         pass
-    def create_dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service):
-        dormitory = Dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service)
-        self.__Dormitory_listmain.append(dormitory)
-        return dormitory
+    def create_dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service,username):
+        # user = AccountList.find_data_user(self,username)
+        # if user.Role == "Owner" and user.verified == True:
+            dormitory = Dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service)
+            self.__Dormitory_listmain.append(dormitory)
+            return "success"
+        # else: "not owner"
     def add_dormitory_main(self, dormitory):
         self.__Dormitory_listmain.append(dormitory)
 

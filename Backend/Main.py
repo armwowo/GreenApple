@@ -4,7 +4,10 @@ from Backend.DormitoryCatalog import DormitoryCatalog
 from Backend.AccountList import AccountList
 from Backend.User import User
 from Backend.Reservation import Reservation
+from Backend.Owner import Owner
 
+
+guygay = Owner("guy","gay","guy@gmail.com","guy123","132254","0987654321")
 
 
 jia_jia = Dormitory("jia_jia","soi hormai","","0828932414",8,18,100,False,"","","Arm")
@@ -41,6 +44,9 @@ Dorcat.add_dormitory_main(sabaiplace)
 Dorcat.add_dormitory_main(boomboom_place)
 Dorcat.add_dormitory_main(enjoyplaces)
 
+# print(Dorcat.create_dormitory("jia_jia","soi hormai","","0828932414",8,18,100,False,"","","guygay"))
+
+
 #test search by facilities 
 # print(Dorcat.search_fac_dor("pets"))
 # print(Dorcat.search_fac_dor("parking"))
@@ -69,17 +75,17 @@ Oreservation.create_room_reserved("11-11-2566","11-11-2567",1101,6500,True,None)
 
 
 #check reservation
-Oakaccount = account_list.find_data_user("oakoak22")
-print(oak.reservation)
+# Oakaccount = account_list.find_data_user("oakoak22")
+# print(oak.reservation)
 #print(oak.reservation)
 
-#test use case register
-# print(account_list.register("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376"))
-# print(account_list.register("oodddak","chat","kingoak11@kmitl.ac.th","oak000","oak08293242","0828944245"))
+## #test use case register
+# print(account_list.register("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376","User"))
+# print(account_list.register("oodddak","chat","kingoak11@kmitl.ac.th","oak000","oak08293242","0828944245","Owner"))
 # print(account_list.register("oak","chatlaong","kingoak1@gmail.com","oakoak22","oak08293242","0828944245"))
 # print(account_list.register("arm","vor","vorarm23@gmail.com","armvor00","armmee999","0929349512"))
 
-print(account_list.list_user_name())
+# print(account_list.list_user_name())
 
 #test use case login
 # print(account_list.check_user("oak","oak08293242"))
