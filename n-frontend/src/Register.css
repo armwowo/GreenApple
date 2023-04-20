@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
   }
   
   .register-form {
@@ -46,5 +46,17 @@
   
   button:hover {
     background-color: #3e8e41;
+  }
+
+  .response-container {
+    margin-top: 1rem;
+  }
+  
+  .response-text {
+    font-size: 1.2rem;
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
   }
   

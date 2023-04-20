@@ -9,6 +9,7 @@ function Register() {
     const [username , setUsername] = useState("")
     const [password , setPassword] = useState("")
     const [user_phone , setUser_phone] = useState("")
+    const [role , setRole] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,6 +20,8 @@ function Register() {
         <div className="register-form-container">
             <form className="register-form" onSubmit={handleSubmit}>
                 <h2 className="Top">Register</h2>
+                <label htmlFor="lastname">Your Role</label>
+                <input value={role} onChange={(e) => setRole(e.target.value)}type="role" placeholder="Owner or User" />
                 <label htmlFor="name">Name</label>
                 <input value={name} onChange={(e) => setName(e.target.value)}type="name" placeholder="Name" />
                 <label htmlFor="lastname">Lastname</label>
@@ -30,7 +33,7 @@ function Register() {
                 <label htmlFor="password">Password</label>
                 <input value={password} onChange={(e) => setPassword(e.target.value)}type="password" placeholder="Password" />
                 <label htmlFor="user_phone">Phone Number</label>
-                <input value={user_phone} onChange={(e) => setPassword(e.target.value)}type="user_phone" placeholder="Phone Number" />
+                <input value={user_phone} onChange={(e) => setUser_phone(e.target.value)}type="user_phone" placeholder="Phone Number" />
                 <button>Submit</button>
             </form>
         </div>

@@ -50,6 +50,8 @@ jia_jia._Roomlist.add_room(room1)
 jia_jia._Roomlist.add_room(room2)
 jia_jia._Roomlist.add_room(room3)
 
+# print(account_list.check_user("arm","12345"))
+
 #print(jia_jia._Roomlist.check_room_status())
 #print(dormcat.cancel_dormitory(jia_jia))
 #print(dormcat.get_dormitory_list())

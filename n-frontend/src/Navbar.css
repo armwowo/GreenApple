@@ -44,6 +44,9 @@
   
   .nav li.active {
     background-color: royalblue;
+    transform: translateY(0.5px);
+    border-radius: 25%;
+    animation: button-ripple 0.6s linear;
   }
   
   .nav li:hover {
