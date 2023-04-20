@@ -1,5 +1,6 @@
 from Backend.Facility import Facility
 from Backend.Dormitory import Dormitory
+from Backend.User import User
 
 
 class DormitoryCatalog:

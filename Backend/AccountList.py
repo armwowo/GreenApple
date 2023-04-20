@@ -31,13 +31,14 @@ class AccountList:
                 new_user = User(name, lastname, email,
                                 user_name, password, user_phone)
                 self.__account.append(new_user)
-                # return new_user
+                return new_user
             elif (Role == "Owner"):
                 new_user = Owner(name, lastname, email,
                                  user_name, password, user_phone)
                 self.__account.append(new_user)
-                # return new_user
-            return "success"
+                print(new_user)
+                return new_user
+            return "Un Successful"
         else:
             return "Invalid password or email"
 

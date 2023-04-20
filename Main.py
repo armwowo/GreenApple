@@ -51,7 +51,6 @@ account_list.add_account(ball)
 account_list.add_account(oak)
 
 print(account_list.account)
-
 print(account_list.register("boom", "chatlaong",
       "boom@gmail.com", "boomboom", "oak08293242", "0828944245", "Owner"))
 
@@ -72,8 +71,10 @@ async def search_maxmin_price(minprice: int, maxprice: int):
 async def add_user(Name: str, Lastname: str, Email: str, User_name: str, Password: str, User_phone: str, Role: str):
     register = account_list.register(
         Name, Lastname, Email, User_name, Password, User_phone, Role)
-    if (type(register) == str):
-        return "unsuccess"
+    # if (type(register) == str):
+    #     return "unsuccess"
+    # elif (register == True):
+    #     return "success"
     return {"Status": register}
 
 
