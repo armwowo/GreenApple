@@ -7,7 +7,7 @@ class User:
         self._username = user_name
         self._password = password
         self._userphone = user_phone
-        self.__role = "User"
+        self._role = "User"
         self.__reservation = []
         self.__reserved = []
     def add_to_list(User):
@@ -40,12 +40,12 @@ class User:
         return "success"
     
     def set_Role(self,role):
-        self.__role = role
+        self._role = role
         return "success"
 
     @property
     def Role(self):
-        return self.__role
+        return self._role
     
     @property
     def reservation(self):

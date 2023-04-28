@@ -1,6 +1,6 @@
 from Backend.Facility import Facility
 from Backend.Dormitory import Dormitory
-from Backend.AccountList import AccountList
+from Backend.AccountList import *
 
 class DormitoryCatalog:
     def __init__(self):
@@ -12,15 +12,24 @@ class DormitoryCatalog:
         pass
     def check_price(self,max_price):
         pass
-    def create_dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service,username):
-        # user = AccountList.find_data_user(self,username)
-        # if user.Role == "Owner" and user.verified == True:
-            dormitory = Dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service)
-            self.__Dormitory_listmain.append(dormitory)
-            return "success"
-        # else: "not owner"
+
     def add_dormitory_main(self, dormitory):
         self.__Dormitory_listmain.append(dormitory)
+    
+    def create_dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service,ownername):
+        user = account_list.find_data_user(ownername)
+        if(user):
+            if user.Role == "Owner" and user.verified == True:
+                for dor_in_list in self.__Dormitory_listmain:
+                    if dor_in_list.get__dor_name() ==dor_name and dor_in_list.get__address() == address:
+                        return "have this dormitory in database"
+                dormitory = Dormitory(dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service,ownername)
+                self.add_dormitory_main(dormitory)
+                return dormitory
+            else: 
+                return "not owner"
+        else:
+            return "username not found"
 
     def view_detail_dormitory(self,dormitory_name):
         dict = {}

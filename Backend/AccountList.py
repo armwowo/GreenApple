@@ -56,9 +56,11 @@ class AccountList:
         for account in self.__account:
             list_username.append(account.get_username())
         return list_username
-    def find_data_user (self,username):
-        for account in self.account:
+    def find_data_user(self, username):
+        for account in self.__account:
             if username == account.get_username():
+                print(account.Role)
                 return account
+        return False
             
-        
+account_list = AccountList()

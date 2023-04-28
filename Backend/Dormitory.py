@@ -92,6 +92,21 @@ class Dormitory():
         return self.__Roomlist.get_room_rental_list()
 
     def search_fac(self, facility):
-        search = Dormitory.get_facility(self)
+        # search = Dormitory.get_facility(self)
+        search = self.__Fac
         # search = "self.__Fac.get_" + facility + "()"
-        return eval("search."+"get_"+facility+"()")
+        for i in range(15):
+            if facility[i] == 1 and search.list_facilities[i] ==1 :
+                print("1")
+                pass
+            elif facility[i] ==1 and search.list_facilities[i] ==0:
+                return False
+        return True
+                
+
+                
+
+        #return search.list_facilities
+        #print(search.list_facilities)
+        # return eval("search."+"get_"+facility+"()")
+    #ยังทำงานไม่ได้และต้องแก้ให้หานfacหลายๆอย่างได้ด้วย

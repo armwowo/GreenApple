@@ -12,7 +12,7 @@ app = FastAPI()
 def read_root():
     return {"message" : "hello world"}
 
-@app.get("/searchFacilities")
+@app.get("/list dormitory")
 def get_dormitory_list():
     return Dorcat.get_dormitory_listmain()
 
@@ -20,9 +20,11 @@ def get_dormitory_list():
 @app.post("/add_dormitory")
 async def add_dormitory(dormitory : dict = Body(...)):
     dor = Dormitory(dormitory["name"],dormitory["address"],dormitory["details"],dormitory["phone"],dormitory["electric"]
-                    ,dormitory["water"],dormitory["service fees"],dormitory["internet"],dormitory["picture"],dormitory["term of service"]
-                    ,dormitory["owner name"])
+                    ,dormitory["water"],dormitory["service_fees"],dormitory["internet"],dormitory["picture"],dormitory["term_of_service"]
+                    ,dormitory["owner_name"])
     DormitoryCatalog().add_dormitory_main(dor)
+    return dor
+    
 
 @app.get("/searchFacilities/")
 def searchFacilities(fac :str):

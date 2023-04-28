@@ -16,6 +16,11 @@ class Facility():
         self.__parking = parking
         self.__smoking = smoking
 
+    @property
+    def list_facilities(self):
+        return [self.__pets,self.__ev_charger,self.__salon,self.__laudry,self.__store,self.__restaurant,
+                self.__security,self.__cctv,self.__finger_print,self.__keycard,self.__fitness,self.__pool,self.__lift,self.__parking,self.__smoking]
+
     def get_pets(self):
         return self.__pets
     
