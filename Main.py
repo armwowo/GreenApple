@@ -46,9 +46,13 @@ def get_dormitory_catalog():
     dormlist = dormcat._Dormitory_listmain
     return {"Dormitory Catalog": dormlist}
 
-@app.post("/register")
-def register(name: str, lastname: str, email: str, user_name: str, password: str, user_phone: str):
-    return {"Status": account_list.register(name,lastname,email,user_name,password,user_phone)}
+@app.post("/Register")
+async def add_user(Name: str, Lastname: str, Email: str, User_name: str, Password: str, User_phone: str, Role: str):
+    register = account_list.register(
+        Name, Lastname, Email, User_name, Password, User_phone, Role)
+    if (type(register) == str):
+        return "unsuccess"
+    return {"Status": register}
 
 @app.get("/accountList")
 def get_account_list():

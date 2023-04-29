@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Axios from "axios";
 import "./Register.css"
 
 function Register() {
@@ -11,10 +10,20 @@ function Register() {
     const [user_phone , setUser_phone] = useState("")
     const [role , setRole] = useState("")
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(username);
-    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const response = await fetch(`http://127.0.0.1:8000/register?username=${username}&password=${password}`, {
+          method: 'POST'
+        });
+        const data = await response.json();
+        console.log(data);
+        if (data.Status.success) {
+            setIsLoggedIn(true)
+        } else {
+            setIsLoggedIn(false)
+        }
+    };
+
 
     return (
         <div className="register-form-container">

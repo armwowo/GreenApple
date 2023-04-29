@@ -25,7 +25,7 @@ function Login() {
     return (
         <div className="login-form-container">
             {isLoggedIn ? (
-                <h2>Login suc!</h2>
+                <h2>Login success!</h2>
             ) : (
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2 className="Top">Login</h2>
