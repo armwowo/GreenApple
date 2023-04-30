@@ -25,29 +25,29 @@ function Register() {
     };
 
     return (
-        <div className="register-form-container">
-            {isRegis ? (
-                <h2 className="context">Register success!</h2>
-            ) : (
-            <form className="register-form" onSubmit={handleSubmit}>
-                <h2 className="Top">Register</h2>
-                <label htmlFor="lastname">Your Role</label>
-                <input value={role} onChange={(e) => setRole(e.target.value)}type="role" placeholder="Owner or User" />
-                <label htmlFor="name">Name</label>
-                <input value={name} onChange={(e) => setName(e.target.value)}type="name" placeholder="Name" />
-                <label htmlFor="lastname">Lastname</label>
-                <input value={lastname} onChange={(e) => setLastname(e.target.value)}type="lastname" placeholder="Lastname" />
-                <label htmlFor="email">Email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="Email" />
-                <label htmlFor="username">Username</label>
-                <input value={username} onChange={(e) => setUsername(e.target.value)}type="username" placeholder="Username" />
-                <label htmlFor="password">Password</label>
-                <input value={password} onChange={(e) => setPassword(e.target.value)}type="password" placeholder="Password" />
-                <label htmlFor="user_phone">Phone Number</label>
-                <input value={user_phone} onChange={(e) => setUser_phone(e.target.value)}type="user_phone" placeholder="Phone Number" />
-                <button>Submit</button>
-            </form>)}
-        </div>
+            <div className="register-form-container">
+                {isRegis ? (
+                    <h1 className="Regis_context">Register success!</h1>
+                ) : (
+                <form className="register-form" onSubmit={handleSubmit}>
+                    <h2 className="Top">Register</h2>
+                    <label htmlFor="lastname">Your Role</label>
+                    <input value={role} onChange={(e) => setRole(e.target.value)}type="role" placeholder="Owner or User" />
+                    <label htmlFor="name">Name</label>
+                    <input value={name} onChange={(e) => setName(e.target.value)}type="name" placeholder="Name" />
+                    <label htmlFor="lastname">Lastname</label>
+                    <input value={lastname} onChange={(e) => setLastname(e.target.value)}type="lastname" placeholder="Lastname" />
+                    <label htmlFor="email">Email</label>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="Email" />
+                    <label htmlFor="username">Username</label>
+                    <input value={username} onChange={(e) => setUsername(e.target.value)}type="username" placeholder="Username" />
+                    <label htmlFor="password">Password</label>
+                    <input value={password} onChange={(e) => setPassword(e.target.value)}type="password" placeholder="Password" />
+                    <label htmlFor="user_phone">Phone Number</label>
+                    <input value={user_phone} onChange={(e) => setUser_phone(e.target.value)}type="user_phone" placeholder="Phone Number" />
+                    <button>Submit</button>
+                </form>)}
+            </div>
     )
 }
 export default Register
