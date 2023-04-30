@@ -9,24 +9,26 @@ function Register() {
     const [password , setPassword] = useState("")
     const [user_phone , setUser_phone] = useState("")
     const [role , setRole] = useState("")
+    const [isRegis, setIsRegis] = useState(false)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch(`http://127.0.0.1:8000/register?username=${username}&password=${password}`, {
+        const response = await fetch(`http://127.0.0.1:8000/Register?Name=${name}&Lastname=${lastname}&Email=${email}&User_name=${username}&Password=${password}&User_phone=${user_phone}&Role=${role}`, {
           method: 'POST'
         });
         const data = await response.json();
-        console.log(data);
-        if (data.Status.success) {
-            setIsLoggedIn(true)
+        if (data.Status === "unsuccess") {
+            setIsRegis(false)
         } else {
-            setIsLoggedIn(false)
+            setIsRegis(true)
         }
     };
 
-
     return (
         <div className="register-form-container">
+            {isRegis ? (
+                <h2 className="context">Register success!</h2>
+            ) : (
             <form className="register-form" onSubmit={handleSubmit}>
                 <h2 className="Top">Register</h2>
                 <label htmlFor="lastname">Your Role</label>
@@ -44,7 +46,7 @@ function Register() {
                 <label htmlFor="user_phone">Phone Number</label>
                 <input value={user_phone} onChange={(e) => setUser_phone(e.target.value)}type="user_phone" placeholder="Phone Number" />
                 <button>Submit</button>
-            </form>
+            </form>)}
         </div>
     )
 }

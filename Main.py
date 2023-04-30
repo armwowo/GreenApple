@@ -22,7 +22,6 @@ app.add_middleware(
 @app.post("/login")
 async def login(username: str,password:str):
     status = account_list.check_user(username,password)
-
     return JSONResponse(content={"Status": status})
 
 @app.get("/searchByName")
