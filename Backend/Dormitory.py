@@ -18,8 +18,11 @@ class Dormitory():
         self.__review = []
         #self.Fac = Facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0) #test
         self.__Fac  = None
-        self._Roomlist = RoomCatalog()
+        self.__Roomlist = RoomCatalog()
 
+    @property
+    def Roomlist(self):
+        return self.__Roomlist
     def get__dor_name(self):
         return self._dor_name
     
@@ -89,15 +92,23 @@ class Dormitory():
     '''def add_roomlist(self,room_id,room_rental,room_status):
         self.__Roomlist.create_room(room_id,room_rental,room_status)'''
     def get_roomlist(self):
-        return self.__Roomlist.get_room_list()
+        return self._Roomlist.get_room_list()
     def get_room_list_id (self):
-        return self.__Roomlist.get_room_list_id()
+        return self._Roomlist.get_room_list_id()
     def get_room_rental_list(self):
-        return self.__Roomlist.get_room_rental_list()
-    def search_fac(self, facility):
-        search = Dormitory.get_facility(self)
+        return self._Roomlist.get_room_rental_list()
+    
+    def search_fac(self, facility):#พารามิเตอร์เป็น facility ทั้งหมด
+        # search = Dormitory.get_facility(self)
+        search = self.__Fac
         # search = "self.__Fac.get_" + facility + "()"
-        return eval("search."+"get_"+facility+"()")
+        for i in range(15):
+            if facility[i] == 1 and search.list_facilities[i] ==1 :
+                # print("1")
+                pass
+            elif facility[i] ==1 and search.list_facilities[i] ==0:
+                return False
+        return True
     
     def add_review(self,review):
         self.__review.append(review)

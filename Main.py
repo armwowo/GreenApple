@@ -6,41 +6,72 @@ from Backend.Main import *
 
 app = FastAPI()
 
-@app.get("/login")
+@app.get("/login", tags=["User"])
 async def login(username: str,password:str):
     status = account_list.check_user(username,password)
 
     return {"Status" : status}
 
-@app.get("/searchByName")
+@app.get("/searchByName", tags=["Search"])
 def search_by_name(name :str):
     list_dormitory = dormcat.search_dor_name(name)
     
     return {"Dormitory Catalog": list_dormitory}
 
-@app.get("/assignRoom")
-def assign_room(name: str):
-    available_room = jia_jia._Roomlist.check_room_status()
-    
-    return {"Available Room": available_room}
+# @app.get("/searchFacilities/", tags=["Search"])
+# def search_facilities(facilities :str):
+#     list_dormitory = dormcat.search_fac_dor(facilities)
 
-@app.delete("/cancelDormitory")
+#     return {"DormitoryCatalog": list_dormitory}
+
+# @app.get("/searchByPrice/", tags=["Search"])
+# def search_by_price(minimum :int, maximum :int):
+#     list_dormitory = dormcat.search_maxmin_price(minimum,maximum)
+    
+#     return {"DormitoryCatalog": list_dormitory}
+    
+@app.get("/searchByFilter", tags=["Search"])
+def search_by_filter(min_price :int, max_price :int,facility :list):
+    list_dormitory = dormcat.search_dormitories(min_price, max_price, facility)
+    
+    return {"Dormitory Catalog": list_dormitory}
+
+@app.get("/availableRoom", tags=["Dormitory"])
+def available_room(name: str):
+    dorm = dormcat.find_dormitory(name)
+    #return dorm
+    return {"Available Room": dorm.Roomlist.check_room_status()}
+
+@app.get("/reservationRoom", tags=["Booking"])
+def reservation(name,check_in,dor_name,room_id):
+    return(system.create_reservation(name,check_in,dor_name,room_id))
+
+@app.get("/creditPayment", tags=["Booking"])
+def credit_payment(card_name,card_number,card_expire,cvv):
+    return(arm.get_reservation(1).create_creditpayment(card_name,card_number,card_expire,cvv))
+
+@app.get("/debitPayment", tags=["Booking"])
+def debit_payment(card_name,card_number,card_expire,cvv):
+    return(arm.get_reservation(1).create_debitpayment(card_name,card_number,card_expire,cvv))
+    
+
+@app.delete("/cancelDormitory", tags=["Dormitory"])
 def cancel_dormitory(name: str):
     return {"Status": dormcat.cancel_dormitory(name)}
 
-@app.get("/getDormcatalog")
+@app.get("/getDormcatalog", tags=["Dormitory"])
 def get_dormitory_catalog():
     dormlist = dormcat._Dormitory_listmain
     return {"Dormitory Catalog": dormlist}
 
-@app.post("/register")
+@app.post("/register", tags=["User"])
 def register(name: str, lastname: str, email: str, user_name: str, password: str, user_phone: str):
     return {"Status": account_list.register(name,lastname,email,user_name,password,user_phone)}
 
-@app.get("/accountList")
-def get_account_list():
-    return {"Account List": account_list._account}
+# @app.get("/accountList", tags=["User"]) เอาไว้เช็คเฉยๆไม่จำเป็นต้องมีในหน้า website
+# def get_account_list():
+#     return {"Account List": account_list._account}
 
-@app.get("/detailDormitory")
+@app.get("/detailDormitory", tags=["Dormitory"]) #ต้องการให้แสดงผลจำนวนห้องพัก และ จำนวนห้องที่ว่างด้วย
 def get_detail_dormitory(name: str):
-    return {"Detail": dormcat.view_detail_dormitory(name)}
+    return {"Detail": dormcat.find_dormitory(name)}

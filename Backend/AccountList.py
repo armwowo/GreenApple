@@ -1,8 +1,16 @@
 from Backend.User import User
+import re
 
 class AccountList:
     def __init__(self):
         self._account = []
+
+    def find_user(self,name):#ค้นหาหอ
+        for user in self._account:
+            if name == user.get_name():
+                return user
+        return "Not found"
+    
     def check_user(self,user_name,password):
         for account in self._account:
             if account.get_username() == user_name and account.get_password() == password:

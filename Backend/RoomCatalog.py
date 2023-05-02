@@ -31,12 +31,17 @@ class RoomCatalog():
     def save_to_room_list(self):
         pass
 
-    def check_room_status(self):
+    def check_room_status(self):#แสดงห้องว่างพร้อมเช่า
         available_room = []
         for room in self._room_list:
             if room.get_room_status() == 1:
                 available_room.append(room)
         return available_room
 
+    def find_room(self,room_id):#ค้นหาหอ
+        for room in self._room_list:
+            if room_id == room.get_room_id():
+                return room
+        return "Not found"
 
     #def add_room สำหรับupdateเผิ่อมีห้องเพิ่ม 
