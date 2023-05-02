@@ -1,5 +1,5 @@
 .Page{
-    height: 1500px;
+    height: 1750px;
     background-image: url("C:\KMITLy1_2\newOOP\GreenApple\Decorate\2.jpg"); 
     /* เดี๋ยวมาเปลี่ยนพื้นหลัง */
     padding-top: 50px;
@@ -10,8 +10,8 @@
     border: 1px solid #a3978c;
     background-color: white;
     border-radius: 5%;
-    height: 1200px;
-    padding-top: 20px;
+    height: 1650px;
+    padding-top: 0px;
 }
 h1 {
     text-align: center;
@@ -36,6 +36,9 @@ h1 {
     height: auto;
     margin-left: 10px;
 }
+.Dor_photo button{
+    background-color: #a3978c;
+}
 .Dor_photo table{
     margin-bottom: 30px;
     border: none;
@@ -45,7 +48,7 @@ h1 {
     text-align: left;
 }
 .Detail_table h2{
-    margin-left: 20px;
+    margin-left: 30px;
 }
 .Detail_table table{
     width: 900px;
@@ -57,9 +60,23 @@ h1 {
     text-align: center;
 }
 .Facility h2{
-    margin-left: 20px;
+    margin-left: 30px;
 }
 .Facility table{
     width: 800px;
-    margin-left: 70px;
+    margin-left: 80px;
   }
+.Facility img{
+    width: 20px;
+    height: 20px;
+  }
+.Facility tr{
+    text-align: left;
+  }
+.False{
+    color: #CB4335;
+}
+.Reserve{
+    margin-left: 50px;
+    background-color: #a3978c;
+}

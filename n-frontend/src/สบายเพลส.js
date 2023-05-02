@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./สบายเพลส.css";
 
 function Sabaiplace() {
@@ -31,6 +32,7 @@ function Sabaiplace() {
                 <h2>รายละเอียด</h2>
                 <p>ห้องเช่า สบายเพลส เป็น ห้องพักตั้งอยู่ที่ ซอย ฉลองกรุง 31/1 หน้านิคมอุตสาหกรรมลาดกระบัง ใกล้พระจอมเกล้าลาดกระบัง และ สนามบิน สุวรรณภูมิ เป็นที่พักในอุดมคติสำหรับ
                   คนทำงานที่ นิคมลาดกระบัง นักเรียน นักศึกษา เทคโน พระจอมเกล้าลาดกระบัง คนทำงานที่สนามบิน สุวรรณภูมิ</p>
+                <button>สถานะ :</button>
               </td>
             </tr>
           </table>
@@ -60,15 +62,64 @@ function Sabaiplace() {
           <h2>สิ่งอำนวยความสะดวก:</h2>
           <table>
             <td>
-              <tr>fg</tr>
-              <tr>dg</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>เครื่องปรับอากาศ</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>เฟอร์นิเจอร์-ตู้ เตียง</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>เครื่องทำน้ำอุ่น</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>พัดลม</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>มี TV ให้</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>ตู้เย็น</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>โทรศัพท์สายตรง</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>อนุญาตให้เลี้ยงสัตว์</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>อนุญาตให้สูบบุหรี่ในหอพัก</tr>
             </td>
             <td>
-              <tr>fg</tr>
-              <tr>dg</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>ที่จอดรถ</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>ที่จอดรถมอเตอร์ไซต์ / จักรยาน</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ลิฟต์</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>สระว่ายน้ำ</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>โรงยิม/ฟิตเนส</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>อินเตอร์เน็ตไร้สาย (WIFI) ในห้อง</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>เคเบิลทีวี / ดาวเทียม</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>มีระบบรักษาความปลอดภัย (keycard)</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>มีระบบรักษาความปลอดภัย (สแกนลายนิ้วมือ)</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>กล้องวงจรปิด (CCTV)</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>รปภ.</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>ร้านขายอาหาร</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>ร้านค่า ร้านสะดวกซื้อ</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>ร้านซัก-รีด / มีบริการเครื่องซักผ้า</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ร้านทำผม-เสริมสวย</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>สถานี charge รถไฟฟ้า</tr>
             </td>
           </table>
         </div>
+        <Link to={`/Reserve`}>
+          <button className="Reserve">จองห้องพัก</button>
+        </Link>
       </div>
     </div>
   );
