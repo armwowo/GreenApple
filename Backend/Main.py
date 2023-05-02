@@ -1,59 +1,73 @@
 from Backend.Facility import Facility
 from Backend.Dormitory import Dormitory
-from Backend.DormitoryCatalog import DormitoryCatalog
-from Backend.AccountList import AccountList
+from Backend.DormitoryCatalog import *
 from Backend.User import User
 from Backend.Reservation import Reservation
-from Backend.Room import Room
+from Backend.Owner import Owner
 
-'''jia_jia.add_facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0)
-sabaiplace.add_facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-boomboom_place.add_facility(0,1,1,1,1,1,1,1,1,1,1,1,1,1,0)
-jia_jia.add_roomlist(101,6500,1,"")
-jia_jia.add_roomlist(102,6500,0,"")
-jia_jia.add_roomlist(103,5000,1,"")
-jia_jia.add_roomlist(104,5000,0,"")
-jia_jia.add_roomlist(105,5000,0,"")
-sabaiplace.add_roomlist(1101,3000,0,"")
-sabaiplace.add_roomlist(1102,8000,1,"") 
-sabaiplace.add_roomlist(1103,8000,0,"")
-boomboom_place.add_roomlist(1001,7000,0,"")
-boomboom_place.add_roomlist(1002,5000,0,"")
-boomboom_place.add_roomlist(1003,5000,1,"")
-print(jia_jia.get_room_list_id())'''
 
-jia_jia = Dormitory("jia_jia","soi hormai","","0828932414",8,18,100,False,"","","Arm")
-sabaiplace = Dormitory("sabaiplace","Vcon","","4905293028",8,18,9,"","",100,"ball")
-boomboom_place = Dormitory("boomboom_place","soi yigyig","","0626250119",8,18,100,False,"","","Tren")
 
-dormcat = DormitoryCatalog()
-dormcat.add_dormitory_main(jia_jia)
-dormcat.add_dormitory_main(sabaiplace)
-dormcat.add_dormitory_main(boomboom_place)
-# print(Dorcat.search_fac_dor("pets"))
-# print(Dorcat.search_fac_dor("smoking"))
-#print(Dorcat.search_maxmin_price(4000,6600))'''
+# guygy = Owner("guy","gy","guy@gmail.com","guy123","132254","0987654321")
+# account_list.add_account(guygy)
 
-account_list = AccountList()
-arm = User("arm","vor","vorarm23@gmail.com","arm","12345","0929349512")
+
+sabaiplace = Dormitory("Sabaiplace","ถ.ฉลองกรุง ลำปลาทิว ลาดกระบัง กรุงเทพมหานคร","","0993429897",8,18,9,"","",100,"ball")
+sabaiplace.add_facility(1,1,1,1,1,1,1,1,1,1,1,0,0,1,1)
+sabaiplace.add_roomlist(1101,4500,0,"")
+sabaiplace.add_roomlist(1102,4500,1,"") 
+sabaiplace.add_roomlist(1103,4500,0,"")
+
+# print(jia_jia.get_room_list_id())
+
+
+Dorcat = DormitoryCatalog()
+Dorcat.add_dormitory_main(sabaiplace)
+
+#test add_dormitory by Owner
+# ju_ju = Dorcat.create_dormitory("ju_ju","soi hormai","","0828932414",8,18,100,False,"","","guy123")
+# ju_ju.add_facility(0,0,0,0,0,1,1,1,1,0,1,0,0,0,0)
+list = Dorcat.get_dormitory_listmain()
+for i in list :
+    print(i.get__dor_name())
+
+#test search by facilities 
+print(Dorcat.search_fac_dor([0,0,0,0,0,1,0,1,0,0,0,0,1,0,0]))
+#print(Dorcat.search_fac_dor("parking"))
+
+#test search by price 
+# print(Dorcat.search_maxmin_price(3000,4000))
+
+#test search by names    return dormitory names
+# print(Dorcat.search_dor_name(boomboom_place.get__dor_name()))
+
+arm = User("arm","vor","vorarm23@gmail.com","armvor00","armmee999","0929349512")
 ball = User("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376")
 oak = User("oak","chatlaong","kingoak11@gmail.com","oakoak22","oak08293242","0828944245")
 account_list.add_account(arm)
-account_list.add_account(ball)
+
+
 account_list.add_account(oak)
 
-room1 = Room(101,6500,room_status=1)
-room2 = Room(102,6500,room_status=0)
-room3 = Room(103,6500,room_status=1)
 
-jia_jia._Roomlist.add_room(room1)
-jia_jia._Roomlist.add_room(room2)
-jia_jia._Roomlist.add_room(room3)
+#check reservation
+# Oakaccount = account_list.find_data_user("oakoak22")
+# print(oak.reservation)
+# print(oak.reservation)
 
-# print(account_list.check_user("arm","12345"))
+## #test use case register
+# print(account_list.register("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376","User"))
+# print(account_list.register("oodddak","chat","kingoak11@kmitl.ac.th","oak000","oak08293242","0828944245","Owner"))
+# oak = account_list.find_data_user("balllnwza")
+# print(oak.Role)
+# print(account_list.register("oak","chatlaong","kingoak1@gmail.com","oakoak22","oak08293242","0828944245"))
+# print(account_list.register("arm","vor","vorarm23@gmail.com","armvor00","armmee999","0929349512"))
 
-#print(jia_jia._Roomlist.check_room_status())
-#print(dormcat.cancel_dormitory(jia_jia))
-#print(dormcat.get_dormitory_list())
-#print(dormcat.cancel_dormitory(jia_jia))
-#print(dormcat.get_dormitory_list())
+# print(account_list.list_user_name())
+
+#test use case login
+# print(account_list.check_user("oak","oak08293242"))
+# print(account_list.find_data_user("oak"))
+
+
+#test view details dormitory
+# print(Dorcat.view_detail_dormitory(jia_jia.get__dor_name()))

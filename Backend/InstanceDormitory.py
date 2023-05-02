@@ -12,7 +12,7 @@ Dormitory = {
         "term_of_service":'-',
         "owner_name":'Vorachot',
         },
-    "sabai_place":{
+    "Sabai_place":{
         "dorm_name":'Sabai Place',
         "address":'Soi V Condo',
         "detail":'-',

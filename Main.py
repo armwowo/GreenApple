@@ -1,10 +1,11 @@
 import fastapi
-from fastapi import FastAPI
+from fastapi import FastAPI,Body
 from typing import Union
 from typing import Optional
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from Backend.Main import *
+from Backend.DormitoryCatalog import DormitoryCatalog
 
 app = FastAPI()
 
@@ -26,7 +27,7 @@ async def login(username: str,password:str):
 
 @app.get("/searchByName")
 def search_by_name(name :str):
-    list_dormitory = dormcat.search_dor_name(name)
+    list_dormitory = Dorcat.search_dor_name(name)
     
     return {"Dormitory Catalog": list_dormitory}
 
@@ -38,11 +39,11 @@ def assign_room(name: str):
 
 @app.delete("/cancelDormitory")
 def cancel_dormitory(name: str):
-    return {"Status": dormcat.cancel_dormitory(name)}
+    return {"Status": Dorcat.cancel_dormitory(name)}
 
 @app.get("/getDormcatalog")
 def get_dormitory_catalog():
-    dormlist = dormcat._Dormitory_listmain
+    dormlist = Dorcat._Dormitory_listmain
     return {"Dormitory Catalog": dormlist}
 
 @app.post("/Register")
@@ -53,10 +54,51 @@ async def add_user(Name: str, Lastname: str, Email: str, User_name: str, Passwor
         return "unsuccess"
     return {"Status": register}
 
-@app.get("/accountList")
-def get_account_list():
-    return {"Account List": account_list._account}
+@app.get("/")
+def read_root():
+    return {"message" : "hello world"}
 
-@app.get("/detailDormitory")
-def get_detail_dormitory(name: str):
-    return {"Detail": dormcat.view_detail_dormitory(name)}
+@app.get( "/getdata",tags=["data"])
+async def get_dormitory_list():
+    dic = []
+    for dor in Dorcat.get_dormitory_listmain():
+        dic.append({dor.get__dor_name():dor})
+    return {"dor_list": dic}
+
+@app.get( "/firstpagedata",tags=["data"])
+async def dict_dor():
+    list = []
+    id = 0
+    for dor in Dorcat.get_dormitory_listmain():
+        list.append({"id":id,
+            "name":dor.get__dor_name(),
+                    "address":dor.get__address(),
+                    "price":str(min(dor.get_room_rental_list()))+" - "+str(max(dor.get_room_rental_list()))
+                    })
+        id+=1
+    return list
+
+
+@app.post("/add_dormitory")
+async def add_dormitory(dormitory : dict = Body(...)):
+    dor = Dormitory(dormitory["name"],dormitory["address"],dormitory["details"],dormitory["phone"],dormitory["electric"]
+                    ,dormitory["water"],dormitory["service_fees"],dormitory["internet"],dormitory["picture"],dormitory["term_of_service"]
+                    ,dormitory["owner_name"])
+    DormitoryCatalog().add_dormitory_main(dor)
+    return dor
+    
+
+@app.get("/searchFacilities/")
+def searchFacilities(fac :str):
+    list_dormitory = Dorcat.search_fac_dor(fac)
+    return {"DormitoryCatalog": list_dormitory}
+
+@app.get("/view-reservation/{username}")
+def viewReservation(username :str):
+    account = account_list.find_data_user(username)
+    return {"account": str(account.reservation)}
+    # return account
+
+@app.get("/searchByPrice/", tags=["Search"])
+def search_by_price(minimum :int, maximum :int):
+    return Dorcat.search_maxmin_price(minimum,maximum)

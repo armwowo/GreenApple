@@ -7,6 +7,9 @@ class User:
         self._username = user_name
         self._password = password
         self._userphone = user_phone
+        self._role = "User"
+        self.__reservation = []
+        self.__reserved = []
     def add_to_list(User):
         pass
     
@@ -27,6 +30,29 @@ class User:
     
     def get_userphone(self):
         return self._userphone
+    
+    def add_reservation(self,reservation):
+        self.__reservation.append(reservation.get_reservation_details())
+        return "success"
+    
+    def add_reserved(self,room_reserved):
+        self.__reserved.append(room_reserved)
+        return "success"
+    
+    def set_Role(self,role):
+        self._role = role
+        return "success"
+
+    @property
+    def Role(self):
+        return self._role
+    
+    @property
+    def reservation(self):
+        return self.__reservation
+    @property
+    def reserved(self):
+        return self.__reserved
     
 def create_user(user_list):
     for key,value in Backend.InstanceUser.user_info.items() :
