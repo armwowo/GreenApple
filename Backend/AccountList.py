@@ -8,11 +8,15 @@ class AccountList:
         self.__account = []
 
     def check_user(self, user_name, password):
+        # add conditions check_user 17/4
         for account in self.__account:
             if account.get_username() == user_name and account.get_password() == password:
-                return "Success"
-
-        return "Not match"
+                return {"success": True, "message": "Login successful."}
+            elif account.get_username() != user_name and account.get_password() == password:
+                return {"success": False, "message": "Invalid username."}
+            elif account.get_username() == user_name and account.get_password() != password:
+                return {"success": False, "message": "Invalid password."}
+        return {"success": False, "message": "Account not found."}
 
     def register(self, name, lastname, email, user_name, password, user_phone, Role):
         # update conditions register 17/4
@@ -41,6 +45,22 @@ class AccountList:
             return "Un Successful"
         else:
             return "Invalid password or email"
+
+    def edit_profile(self, user_name, password, name, lastname, email, newuser_name, newpassword, user_phone):
+        pattern = r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'
+        regex = re.compile('[@_!#$%^&*()<>?/\|}{~:!]')
+        check_number = r'^[0-9]'
+        if re.fullmatch(pattern, email) and (re.match(check_number, user_phone) and len(user_phone) == 10):
+            for account in self.__account:
+                if account.get_username() == user_name and account.get_password() == password:
+                    account._name = name
+                    account._lastname = lastname
+                    account._email = email
+                    account._username = newuser_name
+                    account._password = newpassword
+                    account._userphone = user_phone
+                    return "success"
+        return "Unsuccess"
 
     def add_account(self, account):
         self.__account.append(account)

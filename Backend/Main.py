@@ -51,12 +51,3 @@ create_user(user_list = account_list._account)
 
 print(account_list.check_user("tuplnwza2","tup00203294"))"""
 
-
-app = FastAPI()
-
-
-@app.get("/Search_maxmin_price")
-async def search_maxmin_price(minprice: int, maxprice: int):
-    Dorm = Dorcat.search_maxmin_price(minprice, maxprice)
-
-    return {"Dormitory": Dorm}
