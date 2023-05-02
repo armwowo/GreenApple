@@ -59,15 +59,32 @@ class DormitoryCatalog:
                 temp_list.append(dormitory.get__dor_name())
             else :pass
         return temp_list
+    
     def search_maxmin_price(self,minp,maxp):
         temp_list = []
+        id = 0
         for dormitory in self.__Dormitory_listmain:
             if ((minp <=min(dormitory.get_room_rental_list()) and min(dormitory.get_room_rental_list())<=maxp ) or 
                 (maxp >= max(dormitory.get_room_rental_list()) and minp <= max(dormitory.get_room_rental_list()))):
-                temp_list.append(dormitory.get__dor_name())
+                temp_list.append({"id":id,
+                            "name":dormitory.get__dor_name(),
+                            "address":dormitory.get__address(),
+                            "price":str(min(dormitory.get_room_rental_list()))+" - "+str(max(dormitory.get_room_rental_list()))
+                            })
             else :pass
-        if(temp_list == []) : return "Not Found"
+            id+=1
+        if(temp_list == []) : return None
         return temp_list
+
+    # def search_maxmin_price(self,minp,maxp):
+    #     temp_list = []
+    #     for dormitory in self.__Dormitory_listmain:
+    #         if ((minp <=min(dormitory.get_room_rental_list()) and min(dormitory.get_room_rental_list())<=maxp ) or 
+    #             (maxp >= max(dormitory.get_room_rental_list()) and minp <= max(dormitory.get_room_rental_list()))):
+    #             temp_list.append(dormitory)
+    #         else :pass
+    #     if(temp_list == []) : return None
+    #     return temp_list
     
     def search_dor_name(self,dor_name):
         temp_list = []

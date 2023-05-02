@@ -46,8 +46,8 @@ Dorcat.add_dormitory_main(boomboom_place)
 Dorcat.add_dormitory_main(enjoyplaces)
 
 #test add_dormitory by Owner
-ju_ju = Dorcat.create_dormitory("ju_ju","soi hormai","","0828932414",8,18,100,False,"","","guy123")
-ju_ju.add_facility(0,0,0,0,0,1,1,1,1,0,1,0,0,0,0)
+# ju_ju = Dorcat.create_dormitory("ju_ju","soi hormai","","0828932414",8,18,100,False,"","","guy123")
+# ju_ju.add_facility(0,0,0,0,0,1,1,1,1,0,1,0,0,0,0)
 list = Dorcat.get_dormitory_listmain()
 for i in list :
     print(i.get__dor_name())
