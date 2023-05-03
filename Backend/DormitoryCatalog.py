@@ -89,7 +89,7 @@ class DormitoryCatalog:
     def search_dor_name(self,dor_name):
         temp_list = []
         for dormitory in self.__Dormitory_listmain:
-            if dormitory.get__dor_name() == dor_name:
+            if dormitory.get__dor_name() == dor_name or dormitory.get__dor_name().lower() == dor_name:
                 temp_list.append(dormitory.get__dor_name())
             else : pass
         if temp_list == []:

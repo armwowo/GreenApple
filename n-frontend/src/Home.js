@@ -11,6 +11,7 @@ function Home() {
     const [errors,setEarror] = useState(false);
     const [price,setPrice] = useState([0,10000])
     const [filterList,setlistfiler] = useState([]);
+    
     const Mockdata= async()=>{
         const res = await fetch('http://127.0.0.1:8000/firstpagedata')
         res.json().then(res=>getdata(res))
