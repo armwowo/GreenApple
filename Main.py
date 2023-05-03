@@ -113,9 +113,9 @@ async def get_review(dorname: str):
 
 
 @app.put("/edit proflie", tags=["User"])
-async def edit_profile(User_name: str, Password: str, Name: str, Lastname: str, Email: str, newUser_name: str, newPassword: str, User_phone: str):
+async def edit_profile(User_name: str, Password: str, Name: str, Lastname: str, Email: str, User_phone: str):
     newprofile = account_list.edit_profile(
-        User_name, Password, Name, Lastname, Email, newUser_name, newPassword, User_phone)
+        User_name, Password, Name, Lastname, Email, User_phone)
     return {"status": newprofile}
 
 

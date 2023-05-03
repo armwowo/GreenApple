@@ -46,7 +46,7 @@ class AccountList:
         else:
             return "Invalid password or email"
 
-    def edit_profile(self, user_name, password, name, lastname, email, newuser_name, newpassword, user_phone):
+    def edit_profile(self, user_name, password, name, lastname, email, user_phone):
         pattern = r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'
         regex = re.compile('[@_!#$%^&*()<>?/\|}{~:!]')
         check_number = r'^[0-9]'
@@ -56,8 +56,6 @@ class AccountList:
                     account._name = name
                     account._lastname = lastname
                     account._email = email
-                    account._username = newuser_name
-                    account._password = newpassword
                     account._userphone = user_phone
                     return "success"
         return "Unsuccess"
@@ -70,9 +68,9 @@ class AccountList:
                              "lastname": acc.get_lastname(),
                              "email": acc.get_email(),
                              "username": acc.get_username(),
-                             "password": acc.get_password(),
                              "userphone": acc.get_userphone(),
                              })
+            return "not found"
         return dict
 
     def add_account(self, account):
