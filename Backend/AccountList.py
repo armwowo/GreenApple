@@ -33,7 +33,7 @@ class AccountList:
             if( Role == "User"):new_user = User(name,lastname,email,user_name,password,user_phone)
             elif(Role == "Owner"):new_user = Owner(name,lastname,email,user_name,password,user_phone)
             self.__account.append(new_user)
-            return "success"
+            return new_user
         else : return "Invalid password or email"
         
 

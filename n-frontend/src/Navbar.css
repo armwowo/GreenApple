@@ -6,12 +6,16 @@ body {
   margin: 0;
 }
 
-.container {
+.nav .container {
   margin: 1rem;
   text-align: center;
 }
 
 .nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
   background-color: #a3978c;
   color: white;
   display: flex;

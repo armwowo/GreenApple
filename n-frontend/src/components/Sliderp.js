@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Slider from 'react-slider'
-import './Sliderp.css'
+import '../style/Sliderp.css'
 const MIN = 0;
 const MAX = 10000;
 

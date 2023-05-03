@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,Link } from "react";
 import "./Register.css"
 
 function Register() {
@@ -17,22 +17,29 @@ function Register() {
           method: 'POST'
         });
         const data = await response.json();
-        if (data.Status === "unsuccess") {
+        console.log(data);
+         if (data === "unsuccess") {
             setIsRegis(false)
         } else {
             setIsRegis(true)
         }
+        
     };
 
     return (
         <div className="register-form-container">
             {isRegis ? (
                 <h2 className="context">Register success!</h2>
+                
             ) : (
             <form className="register-form" onSubmit={handleSubmit}>
                 <h2 className="Top">Register</h2>
                 <label htmlFor="lastname">Your Role</label>
-                <input value={role} onChange={(e) => setRole(e.target.value)}type="role" placeholder="Owner or User" />
+                <select className="select-role">
+                    <option value={"Owner"}> Owner </option>
+                    <option value={"User"}> User </option>
+
+                </select>
                 <label htmlFor="name">Name</label>
                 <input value={name} onChange={(e) => setName(e.target.value)}type="name" placeholder="Name" />
                 <label htmlFor="lastname">Lastname</label>

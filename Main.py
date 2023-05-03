@@ -3,6 +3,7 @@ from typing import Union
 from Backend.Dormitory import Dormitory
 from  Backend.Main import *
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from fastapi import FastAPI,Body
 
@@ -70,3 +71,16 @@ def search_by_price(minimum :int, maximum :int):
 # @app.get("/view-reservation")
 # def viewReservation():
 #     return {"Account List": account_list.get_account()}
+
+@app.post("/login")
+async def login(username: str,password:str):
+    status = account_list.check_user(username,password)
+    return JSONResponse(content={"Status": status})
+
+@app.post("/Register")
+async def add_user(Name: str, Lastname: str, Email: str, User_name: str, Password: str, User_phone: str, Role: str):
+    register = account_list.register(
+        Name, Lastname, Email, User_name, Password, User_phone, Role)
+    if (type(register) == str):
+        return "unsuccess"
+    return {"Status": register}

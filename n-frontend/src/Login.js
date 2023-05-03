@@ -17,6 +17,7 @@ function Login() {
         console.log(data);
         if (data.Status.success) {
             setIsLoggedIn(true)
+            
         } else {
             setIsLoggedIn(false)
         }
@@ -25,7 +26,7 @@ function Login() {
     return (
         <div className="login-form-container">
             {isLoggedIn ? (
-                <h2>Login success!</h2>
+                <h1 className="login_context">Login success!</h1>
             ) : (
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2 className="Top">Login</h2>

@@ -36,8 +36,12 @@ input {
   width: 100%;
   box-sizing: border-box;
 }
-
-button {
+.select-role{
+  width:100%;
+  padding: 10px;
+  margin-bottom:20px;
+}
+.register-form button {
   background-color: #404040;
   color: white;
   font-size: 16px;
@@ -47,7 +51,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.register-form button:hover {
   background-color: #66CC00;
 }
 
