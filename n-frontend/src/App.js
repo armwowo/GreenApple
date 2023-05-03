@@ -5,14 +5,14 @@ import Register from "./Register"
 import Sabaiplace from "./Sabaiplace"
 import Reserve from "./Reserve"
 import APPLEHOUSE from "./APPLEHOUSE"
-import AdCha from "./อัจฉริยา"
-import Bankum from "./บ้านคุ้มเกล้า48"
+import AdCha from "./Adchariya"
+import Bankum from "./Bankum"
 import BBCourt from "./BBCourt"
 import APHouse from "./APHouse"
-import Buri from "./บุรีไอริส"
-import Allsmile from "./ออลสมายล์"
-import Rimnam from "./หอริมน้ำ"
-import Nop from "./หอนพเก้า"
+import Buri from "./BuriIris"
+import Allsmile from "./Allsmile"
+import Rimnam from "./Rimnam"
+import Nop from "./Noppakaow"
 import { Route, Routes } from "react-router-dom"
 
 function App() {
@@ -26,14 +26,14 @@ function App() {
           <Route path="/Register" element={<Register/>} />
           <Route path="/Sabaiplace" element={<Sabaiplace/>} />
           <Route path="/APPLEHOUSE" element={<APPLEHOUSE/>} />
-          <Route path="/อัจฉริยา" element={<AdCha/>} />
-          <Route path="/บ้านคุ้มเกล้า48" element={<Bankum/>} />
+          <Route path="/Adchariya" element={<AdCha/>} />
+          <Route path="/Bankhumkaow48" element={<Bankum/>} />
           <Route path="/BBCourt" element={<BBCourt/>} />
           <Route path="/APHouse" element={<APHouse/>} />
-          <Route path="/บุรีไอริส" element={<Buri/>} />
-          <Route path="/ออลสมายล์" element={<Allsmile/>} />
-          <Route path="/หอริมน้ำ" element={<Rimnam/>} />
-          <Route path="/หอนพเก้า" element={<Nop/>} />
+          <Route path="/BuriIris" element={<Buri/>} />
+          <Route path="/Allsmile" element={<Allsmile/>} />
+          <Route path="/Rimnam" element={<Rimnam/>} />
+          <Route path="/Noppakaow" element={<Nop/>} />
           <Route path="/Reserve" element={<Reserve/>} />
         </Routes>
       </div>

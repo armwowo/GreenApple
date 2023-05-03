@@ -33,7 +33,7 @@ def search_by_name(name :str):
 
 @app.get("/assignRoom")
 def assign_room(name: str):
-    available_room = jia_jia._Roomlist.check_room_status()
+    available_room = sabaiplace._Roomlist.check_room_status()
     
     return {"Available Room": available_room}
 

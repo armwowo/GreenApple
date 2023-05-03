@@ -1,24 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./ออลสมายล์.css";
+import "./BuriIris.css";
 
-function Allsmile() {
+
+{/*แก้ข้อมูล */}
+
+function Buri() {
   return (
     <div className="Page">
       <div className="Detail_Container">
-        <h1>ออลสมายล์ แมนชั่น</h1>
-        <p className="Address">ถ.หลวงลาดกระบัง ทับยาว ลาดกระบัง กรุงเทพมหานคร</p>
+        <h1>บุรีไอริส <br/>(ใกล้สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง)</h1>
+        <p className="Address">ซ.ฉลองกรุง 1 แยก5 ถ.ฉลองกรุง ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร</p>
         <div>
           <table className="Top_table">
             <tr>
               <th> {/*เบอร์โทร */}
-                  <h4>เบอร์โทรติดต่อ : 0955358037</h4>
-                  <h4>หรือเบอร์ : 027380911</h4>
+                  <h4>เบอร์โทรติดต่อ : 0851413589</h4>
+                  <h4>หรือเบอร์ : 0908989511</h4>
               </th>
               <th> {/*ราคา */}
                 <h2>ค่าเช่า</h2>
-                <h4>ราคา 5,500 บาท/เดือน</h4>
-                <h4>ราคา 599 บาท/วัน</h4>
+                <h4>ราคา 6,000 บาท/เดือน</h4>
               </th>
             </tr>
           </table>
@@ -27,15 +29,11 @@ function Allsmile() {
           <table>
             <tr>
               <td>
-                <img src={`images/allsmile_pic.jpg`}/>
+                <img src={`images/buri_pic.jpg`}/>
               </td>
               <td>
                 <h2>รายละเอียด</h2>
-                <p>ใกล้สนามบิน สุวรรณภูมิ สำนักงานเขต เทคโนลาดกระบัง มหาวิทาลัยกรุงเทพสุวรรณภูมิ <br/>
-                    เทสโก้โลตัส บีควิก และ อื่นๆอีกมากมาย พร้อมเฟอร์นิเจอร์ เเอร์ อินเตอร์เนท พร้อมที่จอดรถภายในพื้นที่ และมีร้านค้าต่างๆ อยู่ในพื้นที่
-                    ตึกใหม่พร้อมเปิดรับผู้เช่าแล้ววันนี้ติดต่อเพื่อขอรายละเอียดเพิ่มเติมได้แล้ววันนี้ พร้อมโปรโมชั่นพิเศษสำหรับผู้เช่าที่ทำสัญญาภายในเดือนกันยายน พ.ศ. 2565 นี้!<br/>
-                    Line ID : @357cgyob<br/>
-                    Facebook page :</p>
+                <p>มีห้องว่าง แอร์ใหม่ ทาสีใหม่ ติดต่อมาได้เลยค่า</p>
                 <button>สถานะ :</button>
               </td>
             </tr>
@@ -46,19 +44,17 @@ function Allsmile() {
           <table>
             <tr>
               <th>รายเดือน</th>
-              <th>รายวัน</th>
               <th>เงินประกัน</th>
               <th>จ่ายล่วงหน้า</th>
               <th>ค่าไฟ</th>
               <th>ค่าน้ำ</th>
             </tr>
             <tr>
-              <td>5,500 บาท/เดือน</td>
-              <td>599 บาท/วัน</td>
+              <td>6,000 บาท/เดือน</td>
+              <td>10,000 บาท</td>
               <td>1 เดือน</td>
-              <td>-</td>
-              <td>8 บาท/ยูนิต</td>
-              <td>19 บาท/ยูนิต</td>
+              <td>7 บาท/ยูนิต</td>
+              <td>16 บาท/ยูนิต<br/> ขั้นต่ำ 100 บาท/เดือน</td>
             </tr>
           </table>
         </div>
@@ -86,12 +82,12 @@ function Allsmile() {
                 <img src={`images/check_no.jpg`}/>อนุญาตให้สูบบุหรี่ในหอพัก</tr>
             </td>
             <td>
-              <tr className="True">
-                <img src={`images/check_mark.jpg`}/>ที่จอดรถ</tr>
-              <tr className="True">
-                <img src={`images/check_mark.jpg`}/>ที่จอดรถมอเตอร์ไซต์ / จักรยาน</tr>
-              <tr className="True">
-                <img src={`images/check_mark.jpg`}/>ลิฟต์</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ที่จอดรถ</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ที่จอดรถมอเตอร์ไซต์ / จักรยาน</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ลิฟต์</tr>
               <tr className="False">
                 <img src={`images/check_no.jpg`}/>สระว่ายน้ำ</tr>
               <tr className="False">
@@ -104,18 +100,18 @@ function Allsmile() {
                 <img src={`images/check_mark.jpg`}/>มีระบบรักษาความปลอดภัย (keycard)</tr>
               <tr className="False">
                 <img src={`images/check_no.jpg`}/>มีระบบรักษาความปลอดภัย (สแกนลายนิ้วมือ)</tr>
-              <tr className="False">
-                <img src={`images/check_no.jpg`}/>กล้องวงจรปิด (CCTV)</tr>
+              <tr className="True">
+                <img src={`images/check_mark.jpg`}/>กล้องวงจรปิด (CCTV)</tr>
               <tr className="False">
                 <img src={`images/check_no.jpg`}/>รปภ.</tr>
-              <tr className="True">
-                <img src={`images/check_mark.jpg`}/>ร้านขายอาหาร</tr>
-              <tr className="True">
-                <img src={`images/check_mark.jpg`}/>ร้านค่า ร้านสะดวกซื้อ</tr>
-              <tr className="True">
-                <img src={`images/check_mark.jpg`}/>ร้านซัก-รีด / มีบริการเครื่องซักผ้า</tr>
-              <tr className="True">
-                <img src={`images/check_mark.jpg`}/>ร้านทำผม-เสริมสวย</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ร้านขายอาหาร</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ร้านค่า ร้านสะดวกซื้อ</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ร้านซัก-รีด / มีบริการเครื่องซักผ้า</tr>
+              <tr className="False">
+                <img src={`images/check_no.jpg`}/>ร้านทำผม-เสริมสวย</tr>
               <tr className="False">
                 <img src={`images/check_no.jpg`}/>สถานี charge รถไฟฟ้า</tr>
             </td>
@@ -129,4 +125,4 @@ function Allsmile() {
   );
 }
 
-export default Allsmile;
+export default Buri;

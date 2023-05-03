@@ -10,18 +10,55 @@ from Backend.Owner import Owner
 # guygy = Owner("guy","gy","guy@gmail.com","guy123","132254","0987654321")
 # account_list.add_account(guygy)
 
-
+# dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name
+# pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking
+# room_id,room_rental,room_status,room_fac
 sabaiplace = Dormitory("Sabaiplace","ถ.ฉลองกรุง ลำปลาทิว ลาดกระบัง กรุงเทพมหานคร","","0993429897",8,18,9,"","",100,"ball")
 sabaiplace.add_facility(1,1,1,1,1,1,1,1,1,1,1,0,0,1,1)
 sabaiplace.add_roomlist(1101,4500,0,"")
 sabaiplace.add_roomlist(1102,4500,1,"") 
 sabaiplace.add_roomlist(1103,4500,0,"")
-
+bankum = Dormitory("Bankhumkaow48","ซ.48 ถ.คุ้มเกล้า ลำปลาทิว ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+bankum.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+bankum.add_roomlist(103,5000,1,"")
+applehouse = Dormitory("APPLEHOUSE","ซ.ฉลองกรุง 1 แยก 5 ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+applehouse.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+applehouse.add_roomlist(103,5000,1,"")
+adcha = Dormitory("Adchariya","ซ.เกกีงาม 1 ถ.ฉลองกรุง 1 ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+adcha.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+adcha.add_roomlist(103,5000,1,"")
+bbcourt = Dormitory("BBCourt","ซ.ฉลองกรุง 1 ถ.ฉลองกรุง ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+bbcourt.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+bbcourt.add_roomlist(103,5000,1,"")
+aphouse = Dormitory("APHouse","ซ.เกกีงาม 1 ถ.ฉลองกรุง 1 ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+aphouse.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+aphouse.add_roomlist(103,5000,1,"")
+buri = Dormitory("BuriIris","ซ.ฉลองกรุง 1 แยก 5 ถ.ฉลองกรุง ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+buri.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+buri.add_roomlist(103,5000,1,"")
+allsmile = Dormitory("Allsmile","ถ.หลวงลาดกระบัง ทับยาว ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+allsmile.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+allsmile.add_roomlist(103,5000,1,"")
+rimnam = Dormitory("Rimnam","ซ.ลาดกระบัง 13/5 ถ.อ่อนนุช-ลาดกระบัง ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+rimnam.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+rimnam.add_roomlist(103,5000,1,"")
+nop = Dormitory("Noppakaow","ซ.ลาดกระบัง 52 แยก 6 ถ.ลาดกระบัง ลาดกระบัง ลาดกระบัง กรุงเทพมหานคร","","0897981157",7,18,7,"","","","apple")
+nop.add_facility(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0)
+nop.add_roomlist(103,5000,1,"")
 # print(jia_jia.get_room_list_id())
 
 
 Dorcat = DormitoryCatalog()
 Dorcat.add_dormitory_main(sabaiplace)
+Dorcat.add_dormitory_main(applehouse)
+Dorcat.add_dormitory_main(adcha)
+Dorcat.add_dormitory_main(bankum)
+Dorcat.add_dormitory_main(bbcourt)
+Dorcat.add_dormitory_main(aphouse)
+Dorcat.add_dormitory_main(buri)
+Dorcat.add_dormitory_main(allsmile)
+Dorcat.add_dormitory_main(rimnam)
+Dorcat.add_dormitory_main(nop)
 
 #test add_dormitory by Owner
 # ju_ju = Dorcat.create_dormitory("ju_ju","soi hormai","","0828932414",8,18,100,False,"","","guy123")

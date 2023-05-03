@@ -10,7 +10,7 @@
 .newSlider{
     width:100%;
     height: 5px;
-    background-color: #cdd9ed;
+    background-color: #a3978c;
     margin-top: 40px;
 }
 .newSlider .thumb{
@@ -27,7 +27,7 @@
 .box{
     
     width: 100%;
-    height: 100%;
+    height: 250px;
     display: block;
     /* margin-right: 30px;
     margin-top :30px;
