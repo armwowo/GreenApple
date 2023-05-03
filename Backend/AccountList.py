@@ -62,6 +62,19 @@ class AccountList:
                     return "success"
         return "Unsuccess"
 
+    def view_detail_account(self, username):
+        dict = {}
+        for acc in self.__account:
+            if (username == acc.get_username()):
+                dict.update({"name": acc.get_name(),
+                             "lastname": acc.get_lastname(),
+                             "email": acc.get_email(),
+                             "username": acc.get_username(),
+                             "password": acc.get_password(),
+                             "userphone": acc.get_userphone(),
+                             })
+        return dict
+
     def add_account(self, account):
         self.__account.append(account)
 

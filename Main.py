@@ -56,7 +56,7 @@ print(account_list.register("boom", "chatlaong",
       "boom@gmail.com", "boomboom", "oak08293242", "0828944245", "Owner"))
 
 
-boomboom_place.add_review(4, "dsgdsgsgds")
+# boomboom_place.add_review(4, "dsgdsgsgds")
 
 # print(boomboom_place.review_list)
 
@@ -89,8 +89,8 @@ async def get_userlist():
     return {"Account": account_list.account}
 
 
-@app.get("/View Detail", tags=["Dormitory"])
-async def get_detail(dormitory_name: str):
+@app.get("/View Dor_Detail", tags=["Dormitory"])
+async def get_dor_detail(dormitory_name: str):
     dict = Dorcat.view_detail_dormitory(dormitory_name)
     return {"Detail": dict}
 
@@ -117,3 +117,9 @@ async def edit_profile(User_name: str, Password: str, Name: str, Lastname: str, 
     newprofile = account_list.edit_profile(
         User_name, Password, Name, Lastname, Email, newUser_name, newPassword, User_phone)
     return {"status": newprofile}
+
+
+@app.get("/View Account_Detail", tags=["User"])
+async def get_account_detail(username: str):
+    dict = account_list.view_detail_account(username)
+    return {"Detail": dict}
