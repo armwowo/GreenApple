@@ -3,7 +3,8 @@ from fastapi import FastAPI
 from typing import Union
 from typing import Optional
 from Backend.Main import *
-
+from pydantic import BaseModel
+from datetime import datetime
 app = FastAPI()
 
 @app.get("/login", tags=["User"])
@@ -24,17 +25,17 @@ def search_by_name(name :str):
 
 #     return {"DormitoryCatalog": list_dormitory}
 
-# @app.get("/searchByPrice/", tags=["Search"])
-# def search_by_price(minimum :int, maximum :int):
-#     list_dormitory = dormcat.search_maxmin_price(minimum,maximum)
+@app.get("/searchByPrice/", tags=["Search"])
+def search_by_price(minimum :int, maximum :int):
+    list_dormitory = dormcat.search_maxmin_price(minimum,maximum)
     
-#     return {"DormitoryCatalog": list_dormitory}
+    return {"DormitoryCatalog": list_dormitory}
     
-@app.get("/searchByFilter", tags=["Search"])
-def search_by_filter(min_price :int, max_price :int,facility :list):
-    list_dormitory = dormcat.search_dormitories(min_price, max_price, facility)
+# @app.get("/searchByFilter", tags=["Search"])
+# def search_by_filter(min_price :int, max_price :int,facility :list):
+#     list_dormitory = dormcat.search_dormitories(min_price, max_price, facility)
     
-    return {"Dormitory Catalog": list_dormitory}
+#     return {"Dormitory Catalog": list_dormitory}
 
 @app.get("/availableRoom", tags=["Dormitory"])
 def available_room(name: str):
@@ -42,17 +43,51 @@ def available_room(name: str):
     #return dorm
     return {"Available Room": dorm.Roomlist.check_room_status()}
 
-@app.get("/reservationRoom", tags=["Booking"])
-def reservation(name,check_in,dor_name,room_id):
-    return(system.create_reservation(name,check_in,dor_name,room_id))
+# @app.post("/reservationRoom", tags=["Booking"])
+# def reservation(name:str,check_in:str,dor_name:str,room_id:str):
+#     return (system.create_reservation(name,check_in,dor_name,room_id))
 
-@app.get("/creditPayment", tags=["Booking"])
-def credit_payment(card_name,card_number,card_expire,cvv):
-    return(arm.get_reservation(1).create_creditpayment(card_name,card_number,card_expire,cvv))
+# class ReservationRequest(BaseModel):
+#     name: str
+#     check_in_date: str
+#     dorm_name: str
+#     room_id: str
 
-@app.get("/debitPayment", tags=["Booking"])
-def debit_payment(card_name,card_number,card_expire,cvv):
-    return(arm.get_reservation(1).create_debitpayment(card_name,card_number,card_expire,cvv))
+# class ReservationResponse(BaseModel):
+#     user_name: str
+#     check_in_date: str
+#     dorm_name: str
+#     room_id: str
+
+@app.post("/createReservations", tags=["Booking"])
+def create_reservation(name:str,check_in_date:str,dorm_name:str,room_id:str):
+    reservation = system.create_reservation(name,check_in_date,dorm_name,room_id)
+    return reservation
+
+# @app.get("/getReservations/"tags=["Booking"])
+# async def get_reservation(room_id: str):
+#     for reservation in system.reservation:
+#         if reservation.room.room_id == room_id:
+#             return reservation.info
+#     return False
+    
+
+
+@app.post("/creditPayment", tags=["Booking"])
+def credit_payment(name:str,card_name:str,card_number:str,reservation_id:int):
+    user = system.accountlist.find_user(name)
+    user.get_reservation(reservation_id).create_creditpayment(card_name,card_number).pay()
+    return "payment complete"
+
+@app.post("/createRoomreserved", tags=["Booking"])
+def create_Roomreserved(name:str,reservation_id:int):
+    user = system.accountlist.find_user(name)
+    reserved = (user.get_reservation(reservation_id).create_roomreserved())
+    return reserved
+
+# @app.get("/debitPayment", tags=["Booking"])
+# def debit_payment(card_name,card_number,card_expire,cvv):
+#     return(arm.get_reservation(1).create_debitpayment(card_name,card_number,card_expire,cvv))
     
 
 @app.delete("/cancelDormitory", tags=["Dormitory"])
@@ -61,7 +96,7 @@ def cancel_dormitory(name: str):
 
 @app.get("/getDormcatalog", tags=["Dormitory"])
 def get_dormitory_catalog():
-    dormlist = dormcat._Dormitory_listmain
+    dormlist = dormcat.dormitory_listmain
     return {"Dormitory Catalog": dormlist}
 
 @app.post("/register", tags=["User"])

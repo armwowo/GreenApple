@@ -1,36 +1,49 @@
 import Backend.InstanceUser
 class User:
+    # user_id = 0
     def __init__(self,name,lastname,email,user_name,password,user_phone):
-        self._name = name
-        self._lastname = lastname
-        self._email = email
-        self._username = user_name
-        self._password = password
-        self._userphone = user_phone
-        self._role = "User"
+        # type(self).user_id += 1
+        # self.__id = type(self).user_id
+        self.__name = name
+        self.__lastname = lastname
+        self.__email = email
+        self.__username = user_name
+        self.__password = password
+        self.__userphone = user_phone
+        self.__role = "User"
         self.__reservation = []
         self.__reserved = []
         # self.__canceled = []
-    def add_to_list(User):
-        pass
+
+    @property
+    def name(self):
+        return self.__name
+    @property
+    def id(self):
+        return self.__id
     
-    def get_name(self):
-        return self._name
+    @property
+    def lastname(self):
+        return self.__lastname
     
-    def get_lastname(self):
-        return self._lastname
+    @property
+    def email(self):
+        return self.__email
     
-    def get_email(self):
-        return self._email
+    @property
+    def userphone(self):
+        return self.__userphone
     
-    def get_username(self):
-        return self._username
+    @property
+    def Role(self):
+        return self._role
     
-    def get_password(self):
-        return self._password
-    
-    def get_userphone(self):
-        return self._userphone
+    @property
+    def reservation(self):
+        return self.__reservation
+    @property
+    def reserved(self):
+        return self.__reserved
     
     def add_reservation(self,reservation):
         self.__reservation.append(reservation.get_reservation_details())
@@ -44,22 +57,11 @@ class User:
     
     def add_reserved(self,room_reserved):
         self.__reserved.append(room_reserved)
-        return "success"
+        return "add room_reserved"
     
     def set_Role(self,role):
         self._role = role
         return "success"
-
-    @property
-    def Role(self):
-        return self._role
-    
-    @property
-    def reservation(self):
-        return self.__reservation
-    @property
-    def reserved(self):
-        return self.__reserved
     
 # def create_user(user_list):
 #     for key,value in Backend.InstanceUser.user_info.items() :

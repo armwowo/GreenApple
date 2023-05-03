@@ -8,26 +8,28 @@ class Payment(ABC):
         pass
 
 class CreditPayment(Payment):
-    def __init__(self,card_name,card_number,card_expire,cvv):#("armcard","11045","2022-02-05","112")
+    def __init__(self,card_name,card_number):#("armcard","11045","2022-02-05","112")
         self.card_name = card_name
         self.card_number = card_number
-        self.card_expire = card_expire
-        self.cvv = cvv
+        # self.card_expire = card_expire
+        # self.cvv = cvv
+        self.status = False
+
+    def pay(self):
+        self.status = True
+        return str([{"payment status":self.status}])
+
+class DebitPayment(Payment):
+    def __init__(self,card_name,card_number):
+        self.card_name = card_name
+        self.card_number = card_number
+        # self.card_expire = card_expire
+        # self.cvv = cvv
         self.status = False
 
     def pay(self):
         self.status = True
         return "payment complete"
-
-class DebitPayment(Payment):
-    def __init__(self,card_name,card_number,card_expire,cvv):
-        self.card_name = card_name
-        self.card_number = card_number
-        self.card_expire = card_expire
-        self.cvv = cvv
-
-    def pay(self):
-        pass
 
 class PromtPayment(Payment):
     def __init__(self,tel_no):

@@ -4,7 +4,7 @@ from Backend.Room import Room
 
 class Dormitory():
     def __init__(self,dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name):
-        self._dor_name = dor_name
+        self.__dor_name = dor_name
         self.__address = address
         self.__detail = detail
         self.__phone = phone
@@ -23,8 +23,9 @@ class Dormitory():
     @property
     def Roomlist(self):
         return self.__Roomlist
-    def get__dor_name(self):
-        return self._dor_name
+    @property
+    def name(self):
+        return self.__dor_name
     
     def get__address(self):
         return self.__address
@@ -92,11 +93,11 @@ class Dormitory():
     '''def add_roomlist(self,room_id,room_rental,room_status):
         self.__Roomlist.create_room(room_id,room_rental,room_status)'''
     def get_roomlist(self):
-        return self._Roomlist.get_room_list()
+        return self.__Roomlist.get_room_list()
     def get_room_list_id (self):
-        return self._Roomlist.get_room_list_id()
+        return self.__Roomlist.get_room_list_id()
     def get_room_rental_list(self):
-        return self._Roomlist.get_room_rental_list()
+        return self.__Roomlist.get_room_rental_list()
     
     def search_fac(self, facility):#พารามิเตอร์เป็น facility ทั้งหมด
         # search = Dormitory.get_facility(self)

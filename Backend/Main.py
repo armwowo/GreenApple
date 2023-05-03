@@ -8,22 +8,6 @@ from Backend.Room import Room
 from Backend.System import System
 from datetime import date
 
-'''jia_jia.add_facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0)
-sabaiplace.add_facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-boomboom_place.add_facility(0,1,1,1,1,1,1,1,1,1,1,1,1,1,0)
-jia_jia.add_roomlist(101,6500,1,"")
-jia_jia.add_roomlist(102,6500,0,"")
-jia_jia.add_roomlist(103,5000,1,"")
-jia_jia.add_roomlist(104,5000,0,"")
-jia_jia.add_roomlist(105,5000,0,"")
-sabaiplace.add_roomlist(1101,3000,0,"")
-sabaiplace.add_roomlist(1102,8000,1,"") 
-sabaiplace.add_roomlist(1103,8000,0,"")
-boomboom_place.add_roomlist(1001,7000,0,"")
-boomboom_place.add_roomlist(1002,5000,0,"")
-boomboom_place.add_roomlist(1003,5000,1,"")
-print(jia_jia.get_room_list_id())'''
-
 jia_jia = Dormitory("jia_jia","soi hormai","","0828932414",8,18,100,False,"","","Arm")
 sabaiplace = Dormitory("sabaiplace","Vcon","","4905293028",8,18,9,"","",100,"ball")
 boomboom_place = Dormitory("boomboom_place","soi yigyig","","0626250119",8,18,100,False,"","","Tren")
@@ -46,12 +30,26 @@ account_list.add_account(ball)
 account_list.add_account(oak)
 
 room1 = Room("101",6500)
-room2 = Room("102",4000)
-room3 = Room("103",5500)
+room2 = Room("102",6000)
+room3 = Room("103",6000)
+
+room4 = Room("104",4000)
+room5 = Room("105",4500)
+room6 = Room("106",5000)
+
+room7 = Room("107",6500)
+room8 = Room("108",4000)
+room9 = Room("109",5500)
 
 jia_jia.Roomlist.add_room(room1)
 jia_jia.Roomlist.add_room(room2)
 jia_jia.Roomlist.add_room(room3)
+sabaiplace.Roomlist.add_room(room4)
+sabaiplace.Roomlist.add_room(room5)
+sabaiplace.Roomlist.add_room(room6)
+boomboom_place.Roomlist.add_room(room7)
+boomboom_place.Roomlist.add_room(room8)
+boomboom_place.Roomlist.add_room(room9)
 
 # print(dormcat.find_dormitory(jia_jia))
 
@@ -59,30 +57,33 @@ jia_jia.add_facility(1,1,1,0,0,1,1,1,1,0,1,0,0,0,0)
 boomboom_place.add_facility(1,0,0,0,0,1,1,1,1,0,1,0,0,0,0)
 sabaiplace.add_facility(0,1,1,0,0,1,1,1,1,0,1,0,0,0,0)
 
-print(jia_jia.Roomlist.check_room_status())
-
-# print(dormcat.search_dormitories(4000,8500,[1,1,1,0,0,1,1,1,1,0,1,0,0,0,0]))
-print(system.create_reservation("arm","01-05-66",room1))#สร้าง reservation
+# print(jia_jia.Roomlist.check_room_status())
+# # print(jia_jia.get_room_rental_list())
+# # print(dormcat.search_maxmin_price(4000,9000))
+# # print(dormcat.search_dormitories(4000,8500,[1,1,1,0,0,1,1,1,1,0,1,0,0,0,0]))
+# print(arm.reservation)
+print(system.create_reservation("arm","01/05/2023","jia_jia","101"))#สร้าง reservation
+# print(room1.info)
+# print(arm.reservation)
 
 # print(system.create_reservation("oak","01-05-66","jia_jia","102"))
-# print(system.dormcat.find_dormitory("jia_jia").Roomlist.find_room("101"))
-# print(arm.reservation)
-# print(arm.get_reservation(1))
+# # # print(system.dormcat.find_dormitory("jia_jia").Roomlist.find_room("101"))
+# # print(arm.get_reservation(1))
+# # print(system.accountlist.find_user(arm).reservation)
+# print(arm.get_reservation(1001))
+print(arm.get_reservation(1001).create_creditpayment("armcard","0946"))#สร้าง instance payment
+# # # print(oak.get_reservation(2).create_creditpayment("armcard","0946"))
 
-arm.get_reservation(1).create_creditpayment("armcard","0946","2022-02-05","321")#สร้าง payment
+print(arm.get_reservation(1001).create_creditpayment("armcard","0946").pay())#จ่ายเงิน
 
-print(arm.get_reservation(1).create_creditpayment("armcard","0946","2022-02-05","321").pay())#จ่ายเงิน
+# # print(account_list.find_user("arm"))
 
-print(arm.get_reservation(1).create_roomreserved())#สร้าง roomreserved
-print(jia_jia.Roomlist.check_room_status())
+print(arm.get_reservation(1001).create_roomreserved())#สร้าง roomreserved และให้ add ไปที่ room ,roomไม่ว่าง
+print(room1.room_reserved.end)
+# print(jia_jia.Roomlist.check_room_status())
+# print(room1.room_reserved.room_id)
 
-
-
-
-
-
-
-
+# print(system.accountlist.find_user("oak"))
 
 # print(room1.create_reservation(arm,"01-05-66"))
 # reservation1 = room1.get_reservation(1)

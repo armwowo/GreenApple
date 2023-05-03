@@ -24,3 +24,6 @@ class RoomReserved():
     @property
     def end(self):
         return  self.__end
+    @property
+    def room_id(self):
+        return  self.__room_id
