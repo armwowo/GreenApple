@@ -2,6 +2,7 @@ import Navbar from "./Navbar"
 import Home from "./Home"
 import Login from "./Login"
 import Register from "./Register"
+import UserProfile from "./components/Profile"
 import Sabaiplace from "./Sabaiplace"
 import Reserve from "./Reserve"
 import APPLEHOUSE from "./APPLEHOUSE"
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/Login" element={<Login/>} />
           <Route path="/Register" element={<Register/>} />
+          <Route path="/Profile" element={<UserProfile />} />
           <Route path="/Sabaiplace" element={<Sabaiplace/>} />
           <Route path="/APPLEHOUSE" element={<APPLEHOUSE/>} />
           <Route path="/Adchariya" element={<AdCha/>} />
