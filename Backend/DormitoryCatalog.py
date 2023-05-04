@@ -26,7 +26,7 @@ class DormitoryCatalog:
     def get_dormitory_list(self):#return ชื่อหอ
         temp_list = []
         for dorm in self.__Dormitory_listmain:
-            temp_list.append(dorm.get__dor_name())
+            temp_list.append(dorm.name)
         return temp_list
     
     def find_dormitory(self,name):#ค้นหาหอ
@@ -34,7 +34,7 @@ class DormitoryCatalog:
             # print (dorm.get__dor_name())
             if name == dorm.name:
                 return dorm
-        return "Not found"
+        return False
     
     def add_dormitory_main(self, dormitory):
         self.__Dormitory_listmain.append(dormitory)
@@ -52,7 +52,7 @@ class DormitoryCatalog:
         for dormitory in self.__Dormitory_listmain:
             if ((minp <=min(dormitory.get_room_rental_list()) and min(dormitory.get_room_rental_list())<=maxp ) or 
                 (maxp >= max(dormitory.get_room_rental_list()) and minp <= max(dormitory.get_room_rental_list()))):
-                temp_list.append(dormitory.get__dor_name())
+                temp_list.append(dormitory.name)
             else :pass
         if(temp_list == []) : return "Not Found"
         return temp_list
@@ -60,8 +60,8 @@ class DormitoryCatalog:
     def search_dor_name(self,dor_name):
         temp_list = []
         for dormitory in self.__Dormitory_listmain:
-            if dormitory.get__dor_name() == dor_name:
-                temp_list.append(dormitory)
+            if dormitory.name == dor_name:
+                temp_list.append(dormitory.name)
             else :pass
         if temp_list == []:
             return "Not Found"
@@ -81,7 +81,7 @@ class DormitoryCatalog:
     
     def cancel_dormitory(self,name):
         for dormitory in self.__Dormitory_listmain:
-            if dormitory.get__dor_name() == name:
+            if dormitory.name == name:
                 self.__Dormitory_listmain.remove(dormitory)
                 return "Dormitory has been removed."
         

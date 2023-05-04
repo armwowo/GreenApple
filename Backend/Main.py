@@ -62,24 +62,29 @@ sabaiplace.add_facility(0,1,1,0,0,1,1,1,1,0,1,0,0,0,0)
 # # print(dormcat.search_maxmin_price(4000,9000))
 # # print(dormcat.search_dormitories(4000,8500,[1,1,1,0,0,1,1,1,1,0,1,0,0,0,0]))
 # print(arm.reservation)
-print(system.create_reservation("arm","01/05/2023","jia_jia","101"))#สร้าง reservation
+print(room1.room_status)
+print(system.create_reservation("vorarm23@gmail.com","01/05/2023","jia_jia","101"))#สร้าง reservation
+print(arm.reservation)
 # print(room1.info)
-# print(arm.reservation)
 
 # print(system.create_reservation("oak","01-05-66","jia_jia","102"))
 # # # print(system.dormcat.find_dormitory("jia_jia").Roomlist.find_room("101"))
 # # print(arm.get_reservation(1))
 # # print(system.accountlist.find_user(arm).reservation)
 # print(arm.get_reservation(1001))
-print(arm.get_reservation(1001).create_creditpayment("armcard","0946"))#สร้าง instance payment
-# # # print(oak.get_reservation(2).create_creditpayment("armcard","0946"))
+print(arm.get_reservation(1001).create_creditpayment("armcard","0946"))#สร้าง instance payment + จ่ายเงิน + เปลี่ยน status
 
-print(arm.get_reservation(1001).create_creditpayment("armcard","0946").pay())#จ่ายเงิน
+#  print(oak.get_reservation(2).create_creditpayment("armcard","0946"))
+
+# print(arm.get_reservation(1001).create_creditpayment("armcard","0946").pay())#จ่ายเงิน
 
 # # print(account_list.find_user("arm"))
 
-print(arm.get_reservation(1001).create_roomreserved())#สร้าง roomreserved และให้ add ไปที่ room ,roomไม่ว่าง
-print(room1.room_reserved.end)
+# print(arm.get_reservation(1001).create_roomreserved())#สร้าง roomreserved และให้ add ไปที่ room ,roomไม่ว่าง
+# print(room1.room_reserved.end)
+# print(arm.info)
+
+# print(ball.info)
 # print(jia_jia.Roomlist.check_room_status())
 # print(room1.room_reserved.room_id)
 

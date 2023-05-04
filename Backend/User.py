@@ -12,7 +12,7 @@ class User:
         self.__userphone = user_phone
         self.__role = "User"
         self.__reservation = []
-        self.__reserved = []
+        # self.__reserved = []
         # self.__canceled = []
 
     @property
@@ -27,6 +27,10 @@ class User:
         return self.__lastname
     
     @property
+    def username(self):
+        return self.__username
+    
+    @property
     def email(self):
         return self.__email
     
@@ -36,7 +40,7 @@ class User:
     
     @property
     def Role(self):
-        return self._role
+        return self.__role
     
     @property
     def reservation(self):
@@ -44,6 +48,34 @@ class User:
     @property
     def reserved(self):
         return self.__reserved
+    
+    def reservation_info(self):
+        temp_lst = []
+        for i in self.reservation:
+            temp_lst.append(i.info)
+        return temp_lst
+    
+    def reserved_info(self):
+        temp_lst = []
+        for i in self.reserved:
+            temp_lst.append(i.info)
+        return temp_lst
+    
+    @property
+    def info(self):
+        return str([{"name" :self.name,
+                     "email":self.email,
+                     "role":self.Role,
+                     "reservation":self.reservation_info()}])
+    
+    def get_username(self):
+        return self.__username
+    
+    def get_password(self):
+        return self.__password
+    
+    def get_email(self):
+        return self.__email
     
     def add_reservation(self,reservation):
         self.__reservation.append(reservation.get_reservation_details())
@@ -53,7 +85,7 @@ class User:
         for reservation in self.__reservation:
             if reservation_id == reservation.id:
                 return reservation
-        return "Not found"
+        return False
     
     def add_reserved(self,room_reserved):
         self.__reserved.append(room_reserved)

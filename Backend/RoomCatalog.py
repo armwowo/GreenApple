@@ -8,12 +8,19 @@ class RoomCatalog():
     @property
     def room_list(self):
         return self.__room_list
+    
     def get_room_rental_list(self):
         rental_list = []
         for room in self.__room_list:
             rental_list.append(room.get_room_rental())
         return rental_list
     
+    def get_room_info(self):
+        room_list = []
+        for room in self.__room_list:
+            room_list.append(room.info)
+        return room_list
+
     def get_room_status_list(self):
         pass
     
@@ -31,6 +38,7 @@ class RoomCatalog():
         for id in self.__room_list:
             list_id.append(id.get_room_id())
         return list_id
+    
     def save_to_room_list(self):
         pass
 
@@ -45,6 +53,6 @@ class RoomCatalog():
         for room in self.__room_list:
             if room_id == room.get_room_id():
                 return room
-        return "Not found"
+        return False
 
     #def add_room สำหรับupdateเผิ่อมีห้องเพิ่ม 

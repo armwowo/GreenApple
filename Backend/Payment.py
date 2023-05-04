@@ -16,8 +16,9 @@ class CreditPayment(Payment):
         self.status = False
 
     def pay(self):
-        self.status = True
-        return str([{"payment status":self.status}])
+        # self.status = True
+        # return str([{"payment status":self.status}])
+        pass
 
 class DebitPayment(Payment):
     def __init__(self,card_name,card_number):

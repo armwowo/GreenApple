@@ -5,9 +5,9 @@ class Room:
         self.__room_id = room_id
         self.__room_rental = room_rental
         self.__room_status = True
-        self.__room_fac = None
-        # self.__reservation = []
-        self.__room_reserved = None
+        # self.__room_fac = None
+        self.__reservation = []
+        # self.__room_reserved = None
 
     @property
     def room_id(self):
@@ -18,11 +18,25 @@ class Room:
         return self.__room_status
     
     @property
-    def room_reserved(self):
-        return self.__room_reserved
+    def reservation(self):
+        return self.__reservation
+    
+    # @property
+    # def room_reserved(self):
+    #     return self.__room_reserved
     @property
     def room_rental(self):
         return self.__room_rental
+    
+    @property
+    def check_out(self):
+        temp_list = []
+        n = -1
+        for i in self.reservation:
+            n += 1        
+        if n >= 0 and self.room_status == False and self.reservation[n].payment_status == True:
+            return self.reservation[n].check_out.strftime("%d-"+"%b-"+"%Y")
+        return None
     
     def get_check_out(self):
         return self.__room_reserved.end
@@ -47,9 +61,6 @@ class Room:
         self.__room_status = state
         return self.__room_status
     
-    def add_room_reserved(self,roomreserved):
-        self.__room_reserved = roomreserved
-    
     # def get_reservation(self,reservation_id):
     #     for reservation in self.__reservation:
     #         if reservation_id == reservation.id:
@@ -60,5 +71,5 @@ class Room:
         reservation_details = [{"room_id" : self.room_id,
                                 "room_rental" : self.room_rental,
                                 "room_status":self.__room_status,
-                                "check out" : self.__room_reserved.end  }]
+                                "check out" : self.check_out }]
         return str(reservation_details)

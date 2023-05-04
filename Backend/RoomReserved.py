@@ -7,17 +7,20 @@
 #         self.__end  = end
 
 class RoomReserved():
-    def __init__(self,date_reserved,end,room_id):
+    def __init__(self,date_reserved,end,room_id,dorm_name):
         self.__date_reserved = date_reserved
         self.__end  = end
         self.__room_id = room_id
+        self.__dorm_name = dorm_name
         
     def get_reservation():
         pass
-
-    def get_details_roomreserved(self):
-        details = {"start reserved":self.__date_reserved,
-                   "end reserved":self.__end,
+    
+    @property    
+    def info(self):
+        details = {"check-in-date":self.__date_reserved.strftime("%d-"+"%b-"+"%Y"),
+                   "check-out-date":self.__end.strftime("%d-"+"%b-"+"%Y"),
+                   "dormitory":self.__dorm_name.name,
                    "room id":self.__room_id}
         return details
 
