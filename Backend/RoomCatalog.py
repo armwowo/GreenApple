@@ -54,5 +54,17 @@ class RoomCatalog():
             if room_id == room.get_room_id():
                 return room
         return False
+    
+    def number_of_rooms(self):
+        number = 0
+        for room in self.__room_list:
+            print(room)
+            number+=1
+        return number
+    def number_of_available_rooms(self):
+        number = 0
+        for room in self.check_room_status():
+            number+=1
+        return number
 
     #def add_room สำหรับupdateเผิ่อมีห้องเพิ่ม 

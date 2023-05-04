@@ -9,14 +9,17 @@ class System:
         self.__accountlist = accountlist
         self.__dormcat = dormcat
 
-    
-    # def get_reservation(self,reservation_id):
-    #     for reservation in self.__reservation:
-    #         if reservation_id == reservation.id:
-    #             return reservation
-    #     return "Not found"
+    @property
+    def dormcat(self):
+        return self.__dormcat
+    @property
+    def accountlist(self):
+        return self.__accountlist
+    @property
+    def reservation(self):
+        return self.__reservation
 
-    def create_reservation(self,email,check_in_date,dorm_name,room_id):#dor_name,room_id):#func การจองห้อง
+    def create_reservation(self,email,check_in_date,check_out_date,dorm_name,room_id):#dor_name,room_id):#func การจองห้อง
         user = self.__accountlist.find_email(email)
         if user == False:
             return "user not found"
@@ -28,10 +31,16 @@ class System:
             return "room not found"
         
         check_in = datetime.strptime(check_in_date,'%d/%m/%Y')
-        check_out = check_in + timedelta(days = 366)
+        check_out = datetime.strptime(check_out_date,'%d/%m/%Y')
+        if check_in > check_out:
+            return "invalid checkout"
         if room.room_status == True:
-            reservation = Reservation(user,check_in,room,dorm,check_out)
-        else : return "room not available"
+            reservation = Reservation(user,check_in,check_out,room,dorm)
+        elif room.room_status == False:
+            if check_in < room.latest_reservation().check_out:
+                return "room not available"
+            elif check_in >= room.latest_reservation().check_out:
+                reservation = Reservation(user,check_in,check_out,room,dorm)
         user.reservation.append(reservation)
         room.reservation.append(reservation)
         self.__reservation.append(reservation)
@@ -67,20 +76,3 @@ class System:
     
     def find_room(self):
         pass
-    # def get_reservation(self):
-    #     temp_list = []
-    #     for reservation in self.__reservation:
-
-    # def create_creditpayment(self,reservation_id,card_name,card_number,card_expire,cvv):#หลังจากจองห้องเสร็จ
-    #     self.get_reservation(reservation_id).__payment = CreditPayment(card_name,card_number,card_expire,cvv)
-    #     return self.get_reservation(reservation_id).__payment
-    
-    @property
-    def dormcat(self):
-        return self.__dormcat
-    @property
-    def accountlist(self):
-        return self.__accountlist
-    @property
-    def reservation(self):
-        return self.__reservation

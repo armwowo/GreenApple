@@ -7,7 +7,6 @@ class Room:
         self.__room_status = True
         # self.__room_fac = None
         self.__reservation = []
-        # self.__room_reserved = None
 
     @property
     def room_id(self):
@@ -21,21 +20,25 @@ class Room:
     def reservation(self):
         return self.__reservation
     
-    # @property
-    # def room_reserved(self):
-    #     return self.__room_reserved
     @property
     def room_rental(self):
         return self.__room_rental
     
     @property
     def check_out(self):
-        temp_list = []
         n = -1
         for i in self.reservation:
             n += 1        
         if n >= 0 and self.room_status == False and self.reservation[n].payment_status == True:
             return self.reservation[n].check_out.strftime("%d-"+"%b-"+"%Y")
+        return None
+    
+    def latest_reservation(self):
+        n = -1
+        for i in self.reservation:
+            n += 1        
+        if n >= 0:
+            return self.reservation[n]
         return None
     
     def get_check_out(self):

@@ -9,20 +9,7 @@ class DormitoryCatalog:
     @property
     def dormitory_listmain(self):
         return self.__Dormitory_listmain
-    # def create_dormitory(self,dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service,ownername):
-    #     user = account_list.find_data_user(ownername)
-    #     if(user):
-    #         if user.Role == "Owner" and user.verified == True:
-    #             for dor_in_list in self.__Dormitory_listmain:
-    #                 if dor_in_list.get__dor_name() ==dor_name and dor_in_list.get__address() == address:
-    #                     return "have this dormitory in database"
-    #             dormitory = Dormitory(dor_name,address,detail,phone,electric,warter,sevice_fee,internet,dormitory_picture,term_of_service,ownername)
-    #             self.add_dormitory_main(dormitory)
-    #             return dormitory
-    #         else: 
-    #             return "not owner"
-    #     else:
-    #         return "username not found"
+
     def get_dormitory_list(self):#return ชื่อหอ
         temp_list = []
         for dorm in self.__Dormitory_listmain:

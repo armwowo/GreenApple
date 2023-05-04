@@ -9,16 +9,15 @@ class Dormitory():
         self.__detail = detail
         self.__phone = phone
         
-        self.__electric = electric
-        self.__water = water
-        self.__service_fee = service_fee
-        self.__internet = internet
+        self.__electric = electric#ค่าน้ำ
+        self.__water = water#ค่าไฟ
+        self.__service_fee = service_fee#ค่าเซอร์วิส
+        self.__internet = internet#ค่าอินเตอร์เน็ต
 
         self.__dormitory_picture = dormitory_picture
         self.__term_of_service = term_of_service
         self.__owner_name = owner_name
         self.__review = []
-        #self.Fac = Facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0) #test
         self.__Fac  = None
         self.__Roomlist = RoomCatalog()
 
@@ -27,7 +26,9 @@ class Dormitory():
         return str([{"name" :self.name,
                      "address":self.address,
                      "detail":self.detail,
-                     "phone":self.phone}])
+                     "phone":self.phone,
+                     "rooms":self.Roomlist.number_of_rooms(),
+                     "available room":self.Roomlist.number_of_available_rooms()}])
 
     @property
     def Roomlist(self):
@@ -44,17 +45,9 @@ class Dormitory():
     @property
     def phone(self):
         return self.__phone
-    
-    #def add_roomlist(self,roomlist):
-        #self._Roomlist = roomlist
 
     def add_facility(self,pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking):
         self.__Fac = Facility(pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking)
-
-
-    # def search_fac(self, facility):
-    #     search = "self.Fac.get_" + facility + "()"
-    #     return eval(search)
     
     def get_roomlist(self):
         return self.__Roomlist.get_room_list()
@@ -62,7 +55,7 @@ class Dormitory():
         return self.__Roomlist.get_room_list_id()
     def get_room_rental_list(self):
         return self.__Roomlist.get_room_rental_list()
-    
+
     def search_fac(self, facility):#พารามิเตอร์เป็น facility ทั้งหมด
         # search = Dormitory.get_facility(self)
         search = self.__Fac

@@ -55,12 +55,6 @@ class User:
             temp_lst.append(i.info)
         return temp_lst
     
-    def reserved_info(self):
-        temp_lst = []
-        for i in self.reserved:
-            temp_lst.append(i.info)
-        return temp_lst
-    
     @property
     def info(self):
         return str([{"name" :self.name,

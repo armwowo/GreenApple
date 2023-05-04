@@ -26,30 +26,17 @@ def user_info(username:str):
         return user.info
     return "not found"
 
-
 @app.get("/searchByName", tags=["Search"])
 def search_by_name(name :str):
     list_dormitory = dormcat.search_dor_name(name)
     
     return {"Dormitory Catalog": list_dormitory}
 
-# @app.get("/searchFacilities/", tags=["Search"])
-# def search_facilities(facilities :str):
-#     list_dormitory = dormcat.search_fac_dor(facilities)
-
-#     return {"DormitoryCatalog": list_dormitory}
-
 @app.get("/searchByPrice/", tags=["Search"])
 def search_by_price(minimum :int, maximum :int):
     list_dormitory = dormcat.search_maxmin_price(minimum,maximum)
     
     return {"DormitoryCatalog": list_dormitory}
-    
-# @app.get("/searchByFilter", tags=["Search"])
-# def search_by_filter(min_price :int, max_price :int,facility :list):
-#     list_dormitory = dormcat.search_dormitories(min_price, max_price, facility)
-    
-#     return {"Dormitory Catalog": list_dormitory}
 
 @app.get("/availableRoom", tags=["Dormitory"])
 def available_room(name: str):
@@ -59,39 +46,14 @@ def available_room(name: str):
         return {"Available Room": available_room}
     else: "not found dormitory"
 
-# @app.post("/reservationRoom", tags=["Booking"])
-# def reservation(name:str,check_in:str,dor_name:str,room_id:str):
-#     return (system.create_reservation(name,check_in,dor_name,room_id))
-
-# class ReservationRequest(BaseModel):
-#     name: str
-#     check_in_date: str
-#     dorm_name: str
-#     room_id: str
-
-# class ReservationResponse(BaseModel):
-#     user_name: str
-#     check_in_date: str
-#     dorm_name: str
-#     room_id: str
-
 @app.post("/createReservations", tags=["Booking"])
-def create_reservation(email:str,check_in_date:str,dorm_name:str,room_id:str):
-    reservation = system.create_reservation(email,check_in_date,dorm_name,room_id)
+def create_reservation(email:str,check_in_date:str,check_out_date:str,dorm_name:str,room_id:str):
+    reservation = system.create_reservation(email,check_in_date,check_out_date,dorm_name,room_id)
     return reservation
 
 @app.delete("/cancelReservations", tags=["Booking"])
 def cancel_reservation(email:str,dorm_name:str,room_id:str,reservation_id:int):
     return (system.cancel_reservation(email,dorm_name,room_id,reservation_id))
-
-# @app.get("/getReservations/"tags=["Booking"])
-# async def get_reservation(room_id: str):
-#     for reservation in system.reservation:
-#         if reservation.room.room_id == room_id:
-#             return reservation.info
-#     return False
-    
-
 
 @app.post("/creditPayment", tags=["Booking"])
 def credit_payment(email:str,card_name:str,card_number:str,reservation_id:int):
@@ -104,22 +66,6 @@ def credit_payment(email:str,card_name:str,card_number:str,reservation_id:int):
         else: return "not found reservation"
     else: return "invalid email"
 
-# @app.post("/createRoomreserved", tags=["Booking"])
-# def create_Roomreserved(email:str,reservation_id:int):
-#     user = system.accountlist.find_email(email)
-#     if user != False:
-#         reserved = user.get_reservation(reservation_id)
-#         if reserved != False:            
-#             reserved.create_roomreserved()
-#             return "create roomreserved"
-#         else: return "not found reservation"
-#     return "invalid email"
-
-# @app.get("/debitPayment", tags=["Booking"])
-# def debit_payment(card_name,card_number,card_expire,cvv):
-#     return(arm.get_reservation(1).create_debitpayment(card_name,card_number,card_expire,cvv))
-    
-
 @app.delete("/cancelDormitory", tags=["Dormitory"])
 def cancel_dormitory(name: str):
     return {"Status": dormcat.cancel_dormitory(name)}
@@ -131,7 +77,8 @@ def get_dormitory_catalog():
 
 @app.get("/detailDormitory", tags=["Dormitory"]) #ต้องการให้แสดงผลจำนวนห้องพัก และ จำนวนห้องที่ว่างด้วย
 def get_detail_dormitory(name: str):
-    return {"Detail": dormcat.find_dormitory(name)}
+    dorm = dormcat.find_dormitory(name)
+    return {"Detail": dorm.info}
 
 @app.get("/getRoomlist", tags=["Dormitory"])
 def get_roomlist(name:str):
