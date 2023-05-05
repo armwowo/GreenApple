@@ -37,5 +37,9 @@ class RoomCatalog():
             if room.get_room_status() == 1:
                 available_room.append(room.get_room_id())
         return available_room
-
+    def find_room(self,room_id):#ค้นหาหอ
+        for room in self.__room_list:
+            if room_id == room.get_room_id():
+                return room
+        return False
     #def add_room สำหรับupdateเผิ่อมีห้องเพิ่ม 

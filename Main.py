@@ -1,6 +1,7 @@
 from Backend.DormitoryCatalog import DormitoryCatalog
 from typing import Union
 from Backend.Dormitory import Dormitory
+from Backend.System import *
 from  Backend.Main import *
 from fastapi import Depends,FastAPI,HTTPException,status
 from fastapi.middleware.cors import CORSMiddleware
@@ -117,3 +118,15 @@ async def add_user(Name: str, Lastname: str, Email: str, User_name: str, Passwor
     if (type(register) == str):
         return "unsuccess"
     return register
+
+@app.delete("/cancelDormitory", tags=["Dormitory"])
+def cancel_dormitory(name: str):
+    return {"Status": Dorcat.cancel_dormitory(name)}
+
+@app.delete("/userReservation", tags=["Booking"])
+def user_cancle(name: str):
+    return {"Status": Dorcat.cancel_dormitory(name)}
+
+@app.delete("/cancelReservations", tags=["Booking"])
+def cancel_reservation(email:str,dorm_name:str,room_id:str,reservation_id:int):
+    return (system.cancel_reservation(email,dorm_name,room_id,reservation_id))

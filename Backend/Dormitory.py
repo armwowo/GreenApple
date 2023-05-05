@@ -18,7 +18,13 @@ class Dormitory():
         #self.Fac = Facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0) #test
         self.__Fac  = None
         self.__Roomlist = RoomCatalog()
-
+        self.__price = []
+    @property
+    def Roomlist(self):
+        return self.__Roomlist
+    @property
+    def name(self):
+        return self.__dor_name
 
     def get__dor_name(self):
         return self.__dor_name
@@ -83,6 +89,7 @@ class Dormitory():
 
     def add_roomlist(self,room_id,room_rental,room_status,room_fac):
         self.__Roomlist.create_room(room_id,room_rental,room_status,room_fac)
+        self.__price.append(room_rental)
         return "success"
     def get_roomlist(self):
         return self.__Roomlist.get_room_list()

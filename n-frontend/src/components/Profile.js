@@ -21,6 +21,16 @@ function UserProfile(){
         setStatus(true)
         
     }
+    // const cancle= async()=>{
+    //     const res = await fetch(`http://127.0.0.1:8000/getuserdata?user=${use}`,{
+    //         method:'GET'
+    //     })
+    //     res.json().then(res=>{setUser(res)
+    //         setReservation(res.Reservation)})
+        
+    //     setStatus(true)
+        
+    // }
     
     useEffect(()=>{ 
     
@@ -42,13 +52,17 @@ function UserProfile(){
                         <li>Email            :  {formUser.Email}</li>
                         <li>Username         :  {formUser.Username}</li>
                         <li>Phone            :  {formUser.Phone_number}</li>
+                        <div className='reser'>Reservation
+                        
                         {reserlist.map((e)=>(
-                            <li className='reser'>Reservation
+                            <ul>
+                               <button className='cancle' type='submit' >cancle</button>
                                 <li>check in      :{e.check_in} </li>
                                 <li>room id     :{e.room_id} </li>
                                 <li>room rental      :{e.room_rental} </li>
-                            </li>
-                        ))}
+                                </ul>
+                            
+                        ))}</div>
                         {/* <li>Phone            :  {formUser.Reservation.room_id}</li> */}
                     </ul> 
                     {/* <div className='edit-profile'> */}

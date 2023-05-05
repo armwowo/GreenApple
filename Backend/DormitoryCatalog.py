@@ -75,7 +75,12 @@ class DormitoryCatalog:
             id+=1
         if(temp_list == []) : return None
         return temp_list
-
+    def find_dormitory(self,name):#ค้นหาหอ
+            for dorm in self.__Dormitory_listmain:
+                # print (dorm.get__dor_name())
+                if name == dorm.name:
+                    return dorm
+            return False
     # def search_maxmin_price(self,minp,maxp):
     #     temp_list = []
     #     for dormitory in self.__Dormitory_listmain:

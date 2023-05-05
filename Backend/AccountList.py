@@ -5,6 +5,13 @@ class AccountList:
     
     def __init__(self):
         self.__account = []
+
+    def find_email(self,email):
+            for user in self.__account:
+                if email == user.get_email():
+                    return user
+            return False
+
     def check_user(self,user_name,password):
         # add conditions check_user 17/4
         for account in self.__account:

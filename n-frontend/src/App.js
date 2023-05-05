@@ -21,7 +21,10 @@ function App() {
           <Route path="/Register" element={<Register />} />
           <Route path="/Sabaiplace" element={<Sabaiplace />} />
           <Route path="/Profile" element={<UserProfile />} />
-          <Route path = "/Detail" element={<Detail />} />
+          <Route path = "/Detail/0" element={<Detail id={0} />} />
+          <Route path = "/Detail/1" element={<Detail id={1} />} />
+          <Route path = "/Detail/2" element={<Detail id={2} />} />
+          <Route path = "/Detail/3" element={<Detail id={3} />} />
         </Routes>
       </div>
     </>

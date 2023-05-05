@@ -4,7 +4,7 @@ from Backend.DormitoryCatalog import *
 from Backend.User import User
 from Backend.Reservation import Reservation
 from Backend.Owner import Owner
-
+from Backend.System import System
 
 
 guygy = Owner("guy","gy","guy@gmail.com","guy123","132254","0987654321")
@@ -16,11 +16,11 @@ sabaiplace = Dormitory("sabaiplace","Vcon","","4905293028",8,18,9,"","",100,"bal
 boomboom_place = Dormitory("boomboom_place","soi yigyig","","0626250119",8,18,100,False,"","","Tren")
 enjoyplaces = Dormitory("enjoyplaces","soi black dormitory","enjoyplace jaifdjaipejfjpwoer","070000000",8,18,150," - ","",100,"Oak")
 jia_jia.add_facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0)
-sabaiplace.add_facility(1,1,1,1,1,1,1,1,1,1,1,0,0,1,1)
+sabaiplace.add_facility(0,0,0,0,1,1,1,1,1,1,1,0,0,1,1)
 boomboom_place.add_facility(0,1,1,1,1,1,1,1,1,1,1,1,1,1,0)
 enjoyplaces.add_facility(0,0,0,0,0,0,1,1,0,1,0,0,0,1,0)
 jia_jia.add_roomlist(101,6500,1,"")
-jia_jia.add_roomlist(102,6500,0,"")
+jia_jia.add_roomlist("102",6500,0,"")
 jia_jia.add_roomlist(103,5000,1,"")
 jia_jia.add_roomlist(104,5000,0,"")
 jia_jia.add_roomlist(105,5000,0,"")
@@ -74,6 +74,7 @@ Oreservation = Reservation("12-12-2566","oak",oak.get_email(),oak.get_userphone(
 account_list.add_account(oak)
 
 oak.add_reservation(Oreservation)
+oak.add_reservation(Oreservation)
 Oreservation.create_payment(6500,"oak","kingoak11@gmail.com","0828983456")
 
 Oreservation.create_room_reserved("11-11-2566","11-11-2567",1101,6500,True,None)
@@ -103,3 +104,5 @@ Oreservation.create_room_reserved("11-11-2566","11-11-2567",1101,6500,True,None)
 # print(Dorcat.view_detail_dormitory(jia_jia.get__dor_name()))
 # for i in account_list.get_account() :
 #     print(i.get_name())
+system = System(account_list,Dorcat)
+# print(system.create_reservation("vorarm23@gmail.com","01/05/2023","01/05/2024","jia_jia","102"))

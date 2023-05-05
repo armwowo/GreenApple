@@ -41,7 +41,7 @@ function Home() {
                     {filterList && filterList.map((dorm) => (
                     
                     <li key={dorm.id}>
-                        <Link to={`/${dorm.name}`}>
+                        <Link to={`/Detail/${dorm.id}`}>
                                 <h3>{dorm.name}</h3>
                                 <img src={`images/${dorm.name.toLowerCase()}.jpg`} alt={dorm.name} />
                             <p>{dorm.address}</p>
