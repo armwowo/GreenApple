@@ -1,5 +1,5 @@
 .Page{
-    height: 1750px;
+    height: 1900px;
     background-image: url("C:\KMITLy1_2\newOOP\GreenApple\Decorate\2.jpg"); 
     /* เดี๋ยวมาเปลี่ยนพื้นหลัง */
     padding-top: 50px;
@@ -10,7 +10,7 @@
     border: 1px solid #a3978c;
     background-color: white;
     border-radius: 5%;
-    height: 1650px;
+    height: 1800px;
     padding-top: 0px;
 }
 h1 {
@@ -32,7 +32,7 @@ h1 {
 }
 .Dor_photo table tr td img{
     padding-top: 10px;
-    width: 300px;
+    width: 200px;
     height: auto;
     margin-left: 10px;
 }

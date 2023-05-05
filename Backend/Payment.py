@@ -1,24 +1,40 @@
-class Payment:
-    def __init__(self,price,name,email,phone_number):
-        self.__price = price
-        self.__name = name
-        self.__email = email
-        self.__phone_number = phone_number
-        self.__payment_status = False
+from abc import ABC,abstractmethod
+from Backend.Room import *
 
-    def get_detail_reserved(self):
-        pass
-
-    def get_detail_creditpayment(self):
-        pass
+class Payment(ABC):
     
-    def get_detail_debitpayment(self):
+    @abstractmethod
+    def pay(self):
         pass
 
-    @property
-    def payment_status(self):
-        return self.__payment_status
-    
-    def set_payment_status(self,changed):
-        self.__payment_status = changed
-        return self.__payment_status
+class CreditPayment(Payment):
+    def __init__(self,card_name,card_number):#("armcard","11045","2022-02-05","112")
+        self.card_name = card_name
+        self.card_number = card_number
+        # self.card_expire = card_expire
+        # self.cvv = cvv
+        self.status = False
+
+    def pay(self):
+        # self.status = True
+        # return str([{"payment status":self.status}])
+        pass
+
+class DebitPayment(Payment):
+    def __init__(self,card_name,card_number):
+        self.card_name = card_name
+        self.card_number = card_number
+        # self.card_expire = card_expire
+        # self.cvv = cvv
+        self.status = False
+
+    def pay(self):
+        self.status = True
+        return "payment complete"
+
+class PromtPayment(Payment):
+    def __init__(self,tel_no):
+        self.tel_no = tel_no
+
+    def pay(self):
+        pass

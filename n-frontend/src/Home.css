@@ -1,14 +1,16 @@
 .Home_container {
+  margin-top: 20px;
+  margin-left: 125px;
   background-color: white;
-  width: 100%px;
-  display: flex;
+  width: 1200px;
+  display: inline-block;
   flex-direction: column;
-  /* align-items: center; */
-  border-radius: 3%;
+  align-items: center;
+  border-radius: 50px;
 }
 .Home_container ul {
   list-style: none;
-  padding: 0 50px 0 20px;
+  padding: 0px 0px 0px 20px;
   margin: 0;
 }
 .Home_container li {
@@ -30,6 +32,7 @@ color: #333;
 .Home_container h3 {
 font-size: 25px;
 font-weight: bold;
+margin-top: 10px;
 margin-bottom: 10px;
 }
 
@@ -55,13 +58,16 @@ a {
   width : 100%;
 }
 .list_dor{
-  width: 75%;
+  width: 95%;
 }
-
+.list_dor li{
+  height: 220px;
+}
 .flex{
   display: flex;
 }
 
 .height{
-  width: 25%;
+  width: 30%;
+  margin-right: 50px;
 }

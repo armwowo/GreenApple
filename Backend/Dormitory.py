@@ -1,5 +1,6 @@
 from Backend.Facility import Facility
 from Backend.RoomCatalog import RoomCatalog
+from Backend.Room import Room 
 
 class Dormitory():
     def __init__(self,dor_name,address,detail,phone,electric,water,service_fee,internet,dormitory_picture,term_of_service,owner_name):
@@ -7,83 +8,47 @@ class Dormitory():
         self.__address = address
         self.__detail = detail
         self.__phone = phone
-        self.__electric = electric
-        self.__water = water
-        self.__service_fee = service_fee
-        self.__internet = internet
+        
+        self.__electric = electric#ค่าน้ำ
+        self.__water = water#ค่าไฟ
+        self.__service_fee = service_fee#ค่าเซอร์วิส
+        self.__internet = internet#ค่าอินเตอร์เน็ต
+
         self.__dormitory_picture = dormitory_picture
         self.__term_of_service = term_of_service
         self.__owner_name = owner_name
         self.__review = []
-        #self.Fac = Facility(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0) #test
         self.__Fac  = None
         self.__Roomlist = RoomCatalog()
 
+    @property
+    def info(self):
+        return str([{"name" :self.name,
+                     "address":self.address,
+                     "detail":self.detail,
+                     "phone":self.phone,
+                     "rooms":self.Roomlist.number_of_rooms(),
+                     "available room":self.Roomlist.number_of_available_rooms()}])
 
-    def get__dor_name(self):
+    @property
+    def Roomlist(self):
+        return self.__Roomlist
+    @property
+    def name(self):
         return self.__dor_name
-    
-    def get__address(self):
-        return self.__address
-    
-    def get__detail(self):
+    @property
+    def detail(self):
         return self.__detail
-    
-    def get__phone(self):
+    @property
+    def address(self):
+        return self.__address
+    @property
+    def phone(self):
         return self.__phone
-    
-    def get__electric(self):
-        return self.__electric
-    
-    def get__water(self):
-        return self.__water
-    
-    def get__service_fee(self):
-        return self.__service_fee
-    
-    def get__internet(self):
-        return self.__internet
-    
-    def get__dormitory_picture(self):
-        return self.__dormitory_picture
-    
-    def get__term_of_service(self):
-        return self.__term_of_service
-    
-    def get__owner_name(self):
-        return self.__owner_name
-    
-    def get__review(self):
-        return self.__review 
-       
-    def find_facility(self,facility):
-        pass
 
-    def check_room_status(self,):
-        pass
-
-    def get_room_catalog(self,):
-        pass
-  
-    def get_facility(self):
-        return self.__Fac
-    
-    def check_rental(self,):
-        pass
-
-    def create_room(self,ID,type,status,rental,room_facility):
-        pass
     def add_facility(self,pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking):
         self.__Fac = Facility(pets,ev_charger,salon,laudry,store,restaurant,security,cctv,finger_print,keycard,fitness,pool,lift,parking,smoking)
-
-    # def search_fac(self, facility):
-    #     search = "self.Fac.get_" + facility + "()"
-    #     return eval(search)
     
-
-    def add_roomlist(self,room_id,room_rental,room_status,room_fac):
-        self.__Roomlist.create_room(room_id,room_rental,room_status,room_fac)
-        return "success"
     def get_roomlist(self):
         return self.__Roomlist.get_room_list()
     def get_room_list_id (self):
@@ -91,18 +56,17 @@ class Dormitory():
     def get_room_rental_list(self):
         return self.__Roomlist.get_room_rental_list()
 
-    def search_fac(self, facility):
+    def search_fac(self, facility):#พารามิเตอร์เป็น facility ทั้งหมด
         # search = Dormitory.get_facility(self)
         search = self.__Fac
         # search = "self.__Fac.get_" + facility + "()"
         for i in range(15):
             if facility[i] == 1 and search.list_facilities[i] ==1 :
-                print("1")
+                # print("1")
                 pass
             elif facility[i] ==1 and search.list_facilities[i] ==0:
                 return False
         return True
-        #return search.list_facilities
-        #print(search.list_facilities)
-        # return eval("search."+"get_"+facility+"()")
-    #ยังทำงานไม่ได้และต้องแก้ให้หานfacหลายๆอย่างได้ด้วย
+    
+    def add_review(self,review):
+        self.__review.append(review)

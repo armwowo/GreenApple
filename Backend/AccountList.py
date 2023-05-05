@@ -5,6 +5,31 @@ from Backend.Owner import Owner
 class AccountList:
     def __init__(self):
         self.__account = []
+
+    def find_user(self,name):
+        for user in self.__account:
+            if name == user.name:
+                return user
+        return False
+    
+    def find_user_username(self,username):
+        for user in self.__account:
+            if username == user.username:
+                return user
+        return False
+    
+    def find_email(self,email):
+        for user in self.__account:
+            if email == user.get_email():
+                return user
+        return False
+    
+    def get_info(self):
+        temp_lst = []
+        for user in self.__account:
+            temp_lst.append(user.info)            
+        return temp_lst
+    
     def check_user(self,user_name,password):
         # add conditions check_user 17/4
         for account in self.__account:
@@ -35,32 +60,19 @@ class AccountList:
             self.__account.append(new_user)
             return "success"
         else : return "Invalid password or email"
-        
-
     
     def add_account(self,account):
         self.__account.append(account)
-    
-    @property
-    def account(self):
-        if self.__account is None:
-            return None
-        return self.__account
-    
-    #test 
-    def get_account(self):
-        return self.__account
 
-    def list_user_name(self):
-        list_username = []
-        for account in self.__account:
-            list_username.append(account.get_username())
-        return list_username
     def find_data_user(self, username):
         for account in self.__account:
             if username == account.get_username():
                 print(account.Role)
                 return account
         return False
-            
-account_list = AccountList()
+    
+    @property
+    def account(self):
+        if self.__account is None:
+            return None
+        return self.__account

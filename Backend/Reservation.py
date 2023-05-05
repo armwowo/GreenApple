@@ -1,59 +1,70 @@
-from Backend.Room import Room
-from Backend.Payment import Payment
+from Backend.Payment import *
 from Backend.RoomReserved import RoomReserved
+from Backend.User import User
+from datetime import timedelta, date
 
-class Reservation(Room):
-    def __init__(self,check_in,name,email,phone_number,Dor_name,room_id,room_rental,room_status,room_fac):
-        Room.__init__(self,room_id,room_rental,room_status,room_fac)
+class Reservation():
+    reservation_id = 1000
+    def __init__(self, user,check_in,check_out,room,dorm):#dor_name,room_id):
+        type(self).reservation_id += 1
+        self.__id = type(self).reservation_id
+        self.__user = user
+        # self.__email = email
         self.__check_in = check_in
-        self.__name = name
-        self.__email = email
-        self.__phone_number = phone_number
-        self.__dormitory_name  = Dor_name
+        self.__check_out = check_out
+        self.__dorm_name = dorm
+        # self.__room_id = room_id
+        self.__room = room
         self.__payment = None
-        Room.set_room_status(Room,False)
+        self.__payment_status = False
 
-    def get_detail_payment():
-        pass
-
-    def create_payment(self,price,name,email,phone_number):
-        self.__payment = Payment(price,name,email,phone_number)
-        return "success"
-    
-    def create_room_reserved(self,date_reserved,end,room_id,room_rental,room_status,room_fac):
-        if(self.__payment.payment_status):
-            room_reserved = RoomReserved(date_reserved,end,room_id,room_rental,room_status,room_fac)
-            return room_reserved
-        else :return "You haven't paid yet"
-
+    @property
+    def user(self):
+        return self.__user
     @property
     def check_in(self):
         return self.__check_in
     @property
-    def name(self):
-        return self.__name
+    def check_out(self):
+        return self.__check_out
     @property
-    def email(self):
-        return self.__email
+    def dor_name(self):
+        return self.__dorm_name
     @property
-    def phone_number(self):
-        return self.__phone_number
+    def room_id(self):
+        return self.__room_id
+    @property
+    def status(self):
+        return self.__status
+    @property
+    def room(self):
+        return self.__room
+    @property
+    def payment(self):
+        return self.__payment
+    @property
+    def payment_status(self):
+        return self.__payment_status
+    @property
+    def id(self):
+        return self.__id
     
-    def get_reservation_details(self):
-        reservation_details = {"name": self.__name , 
-                              "email" : self.__email , 
-                              "phone_number" : self.__phone_number,
-                              "room_id" : self.room_id,
-                              "room_rental" : self.room_rental,
-                               "check in" : self.__check_in  }
-        return reservation_details
-    # def create_room_reservation(self):
-    #     reservation_detail = {"name": self.__name , 
-    #                           "email" : self.__email , 
-    #                           "phone_number" : self.__phone_number,
-    #                           "room_id" : Room.room_id,
-    #                           "room_rental" : Room.room_rental,
-    #                            "check in" : self.__check_in  }
-    #     Room.set_room_status(Room,False)
-    #     return reservation_detail
+    @property
+    def info(self):
+        return str([{"reservation id" :self.id,
+                     "email":self.__user.email,
+                     "dormitory":self.dor_name.name,
+                     "room id":self.__room.room_id,
+                     "check-in-date":self.__check_in.strftime("%d-"+"%b-"+"%Y"), "check-out-date":self.__check_out.strftime("%d-"+"%b-"+"%Y"),
+                     "payment status":self.__payment_status}])
+
+    def create_creditpayment(self,card_name,card_number):#หลังจากจองห้องเสร็จ
+        self.__payment = CreditPayment(card_name,card_number)
         
+        # check_out = self.__check_in + timedelta(days = 366)
+        # self.__check_out = check_out
+        
+        self.room.set_room_status(False)
+        self.__payment_status = True
+        return str([{"payment status":self.__payment_status}])
+    

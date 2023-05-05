@@ -8,10 +8,10 @@
 }
 
 .newSlider{
-    width:100%;
+    width:330px;
     height: 5px;
     background-color: #a3978c;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 .newSlider .thumb{
     width: 20px;
@@ -25,15 +25,12 @@
 }
 
 .box{
-    width: auto;
-    height: 250px;
+    width: 350px;
+    height: 200px;
     display: block;
-    /* margin-right: 30px;
-    margin-top :30px;
-    margin-bottom :30px; */
-    padding:36px 32px;
+    padding: 0px 32px;
     background:#fff;
-    border: #000000 1px solid;
+    border: white 1px solid;
     border-radius: 6px;
 }
 h4{
