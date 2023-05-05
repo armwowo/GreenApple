@@ -3,12 +3,13 @@
     background-color:aliceblue ;
     display: flex;
     margin : auto;
-    margin-top: 60px;;
+    margin-top: 30px;;
     width: 80%;
-    height: 540px;
+    height: 660px;
     justify-content: center;
     align-items: center;
     border: 2px solid ;
+    box-shadow: 10px 10px;
 }
 
 .your-profile{
@@ -20,8 +21,12 @@
 }
 
 .user-info li{
-    padding:25px;
+    padding:20px;
     margin-left: 40px;
+}
+
+.reser li {
+    padding: 7px;
 }
 
 .user-info{
@@ -44,6 +49,7 @@
     border-radius: 4px;
     /* padding: 10px 15px; */
     cursor: pointer;
+    box-shadow: 2px 4px black;
   }
   
 .card button:hover {
@@ -52,7 +58,7 @@
 .user-photo{
     width: 40%;
     margin-left: 10px;
-    height:480px;
+    height:500px;
     font-size: 18px;
     background-image: url("C:\GreenApple\GreenApple\n-frontend\public\user1.jpg");
     background-size:auto;

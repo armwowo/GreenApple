@@ -2,34 +2,60 @@ from Backend.DormitoryCatalog import DormitoryCatalog
 from typing import Union
 from Backend.Dormitory import Dormitory
 from  Backend.Main import *
+from fastapi import Depends,FastAPI,HTTPException,status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-
+from pydantic import BaseModel
+from passlib.context import CryptContext
+# from jose import JWTError,jwt
 from fastapi import FastAPI,Body
 
+SECRET_KEY = "87ccb4638d2228accb6b110a2f69b6bfd45a2fbd6c1c51f229a96f7a7545d8e3"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES =30
+
+
 app = FastAPI()
+
+
+
 origins = [
     "*",  # Replace with the appropriate origin of your React application
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=[""],
-    allow_headers=[""],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/")
 def read_root():
     return {"message" : "hello world"}
 
-@app.get( "/getdata",tags=["data"])
+@app.get( "/getuserdata",tags=["data"])
+async def get_user_data(user:str):
+    current_user = account_list.find_data_user(user)
+    if current_user!=False:
+        return {"Name":current_user.get_name(),
+                "Email":current_user.get_email(),
+                "Username":current_user.get_username(),
+                "Phone_number":current_user.get_userphone(),
+                "Reservation":current_user.reservation}
+    else: {}
+
+@app.get( "/getdatadorm",tags=["data"])
 async def get_dormitory_list():
-    dic = []
+    # dic = []
+    return {"dor_list":Dorcat.get_dormitory_listmain()}
     for dor in Dorcat.get_dormitory_listmain():
         dic.append({dor.get__dor_name():dor})
     return {"dor_list": dic}
+
+
 
 @app.get( "/firstpagedata",tags=["data"])
 async def dict_dor():
@@ -43,6 +69,10 @@ async def dict_dor():
                     })
         id+=1
     return list
+
+@app.get( "/userlist",tags=["data"])
+async def userList():
+    return {"account list":account_list.account}
 
 
 @app.post("/add_dormitory")
@@ -75,12 +105,15 @@ def search_by_price(minimum :int, maximum :int):
 @app.post("/login")
 async def login(username: str,password:str):
     status = account_list.check_user(username,password)
-    return JSONResponse(content={"Status": status})
+    if (type(status) == str):
+        return "unsuccess"
+    return {"Status": status}
 
 @app.post("/Register")
 async def add_user(Name: str, Lastname: str, Email: str, User_name: str, Password: str, User_phone: str, Role: str):
     register = account_list.register(
         Name, Lastname, Email, User_name, Password, User_phone, Role)
+    print(register)
     if (type(register) == str):
         return "unsuccess"
-    return {"Status": register}
+    return register

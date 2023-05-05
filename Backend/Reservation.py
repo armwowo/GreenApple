@@ -45,7 +45,7 @@ class Reservation(Room):
                               "phone_number" : self.__phone_number,
                               "room_id" : self.room_id,
                               "room_rental" : self.room_rental,
-                               "check in" : self.__check_in  }
+                               "check_in" : self.__check_in  }
         return reservation_details
     # def create_room_reservation(self):
     #     reservation_detail = {"name": self.__name , 

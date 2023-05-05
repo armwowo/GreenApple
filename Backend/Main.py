@@ -48,12 +48,12 @@ Dorcat.add_dormitory_main(enjoyplaces)
 #test add_dormitory by Owner
 # ju_ju = Dorcat.create_dormitory("ju_ju","soi hormai","","0828932414",8,18,100,False,"","","guy123")
 # ju_ju.add_facility(0,0,0,0,0,1,1,1,1,0,1,0,0,0,0)
-list = Dorcat.get_dormitory_listmain()
-for i in list :
-    print(i.get__dor_name())
+# list = Dorcat.get_dormitory_listmain()
+# for i in list :
+#     print(i.get__dor_name())
 
 #test search by facilities 
-print(Dorcat.search_fac_dor([0,0,0,0,0,1,0,1,0,0,0,0,1,0,0]))
+# print(Dorcat.search_fac_dor([0,0,0,0,0,1,0,1,0,0,0,0,1,0,0]))
 #print(Dorcat.search_fac_dor("parking"))
 
 #test search by price 
@@ -67,7 +67,7 @@ print(Dorcat.search_fac_dor([0,0,0,0,0,1,0,1,0,0,0,0,1,0,0]))
 
 arm = User("arm","vor","vorarm23@gmail.com","armvor00","armmee999","0929349512")
 ball = User("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376")
-oak = User("oak","chatlaong","kingoak11@gmail.com","oakoak22","oak08293242","0828944245")
+oak = User("oak","chatlaong","kingoak11@gmail.com","oakoak22","oak0828944245","0828944245")
 account_list.add_account(arm)
 account_list.add_account(ball)
 Oreservation = Reservation("12-12-2566","oak",oak.get_email(),oak.get_userphone(),jia_jia.get__dor_name(),1101,6500,True,None)
@@ -86,7 +86,7 @@ Oreservation.create_room_reserved("11-11-2566","11-11-2567",1101,6500,True,None)
 
 ## #test use case register
 # print(account_list.register("ball","watchanon","dragonball@gmail.com","balllnwza","dragonball123","0839456376","User"))
-# print(account_list.register("oodddak","chat","kingoak11@kmitl.ac.th","oak000","oak08293242","0828944245","Owner"))
+# print(type(account_list.register("oodddak","chat","kingoak11@kmitl.ac.th","oak000","oak08293242","0828944245","Owner")))
 # oak = account_list.find_data_user("balllnwza")
 # print(oak.Role)
 # print(account_list.register("oak","chatlaong","kingoak1@gmail.com","oakoak22","oak08293242","0828944245"))
@@ -101,3 +101,5 @@ Oreservation.create_room_reserved("11-11-2566","11-11-2567",1101,6500,True,None)
 
 #test view details dormitory
 # print(Dorcat.view_detail_dormitory(jia_jia.get__dor_name()))
+# for i in account_list.get_account() :
+#     print(i.get_name())
