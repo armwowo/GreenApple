@@ -18,7 +18,6 @@ class DormitoryCatalog:
     
     def find_dormitory(self,name):#ค้นหาหอ
         for dorm in self.__Dormitory_listmain:
-            # print (dorm.get__dor_name())
             if name.lower() == dorm.name.lower():
                 return dorm
         return False
@@ -62,8 +61,6 @@ class DormitoryCatalog:
     
     def search_dormitories(self,minp,maxp,facility):
         temp_list = []
-        # if dor_name != None:
-        #     return self.search_dor_name(dor_name)
         for j in self.search_maxmin_price(minp,maxp):
             print(j)
             for k in self.search_fac_dor(facility):

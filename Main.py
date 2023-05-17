@@ -6,7 +6,6 @@ from fastapi import Depends,FastAPI,HTTPException,status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-# from jose import JWTError,jwt
 from fastapi import FastAPI,Body
 
 SECRET_KEY = "87ccb4638d2228accb6b110a2f69b6bfd45a2fbd6c1c51f229a96f7a7545d8e3"
@@ -19,7 +18,7 @@ app = FastAPI()
 
 
 origins = [
-    "*",  # Replace with the appropriate origin of your React application
+    "*",
 ]
 
 
@@ -48,11 +47,7 @@ async def get_user_data(user:str):
 
 @app.get( "/getdatadorm",tags=["data"])
 async def get_dormitory_list():
-    # dic = []
-    return {"dor_list":dormcat.get_dormitory_listmain()}
-    for dor in Dorcat.get_dormitory_listmain():
-        dic.append({dor.get__dor_name():dor})
-    return {"dor_list": dic}
+    return {"dor_list":dormcat.dormitory_listmain}
 
 
 
@@ -60,10 +55,10 @@ async def get_dormitory_list():
 async def dict_dor():
     list = []
     id = 0
-    for dor in dormcat.get_dormitory_listmain():
+    for dor in dormcat.dormitory_listmain():
         list.append({"id":id,
-            "name":dor.get__dor_name(),
-                    "address":dor.get__address(),
+            "name":dor.name,
+                    "address":dor.address(),
                     "price":str(min(dor.get_room_rental_list()))+" - "+str(max(dor.get_room_rental_list()))
                     })
         id+=1
@@ -92,14 +87,10 @@ def searchFacilities(fac :str):
 def viewReservation(username :str):
     account = account_list.find_data_user(username)
     return {"account": str(account.reservation)}
-    # return account
 
 @app.get("/searchByPrice/", tags=["Search"])
 def search_by_price(minimum :int, maximum :int):
     return dormcat.search_maxmin_price(minimum,maximum)
-# @app.get("/view-reservation")
-# def viewReservation():
-#     return {"Account List": account_list.get_account()}
 
 @app.post("/login")
 async def login(username: str,password:str):
@@ -127,3 +118,8 @@ async def get_user_data(user:str):
                 "Phone_number":current_user.get_userphone(),
                 "Reservation":current_user.reservation}
     else: {}
+
+@app.post("/createReservations", tags=["Booking"])
+def create_reservation(email:str,check_in_date:str,check_out_date:str,dorm_name:str,room_id:str):
+    reservation = system.create_reservation(email,check_in_date,check_out_date,dorm_name,room_id)
+    return reservation

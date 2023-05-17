@@ -5,7 +5,6 @@ class Room:
         self.__room_id = room_id
         self.__room_rental = room_rental
         self.__room_status = True
-        # self.__room_fac = None
         self.__reservation = []
 
     @property
@@ -63,12 +62,7 @@ class Room:
     def set_room_status(self,state):
         self.__room_status = state
         return self.__room_status
-    
-    # def get_reservation(self,reservation_id):
-    #     for reservation in self.__reservation:
-    #         if reservation_id == reservation.id:
-    #             return reservation
-    #     return "Not found"
+
     @property
     def info(self):
         reservation_details = [{"room_id" : self.room_id,

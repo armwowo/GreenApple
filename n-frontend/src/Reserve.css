@@ -8,6 +8,10 @@
     background-position: center;
   }
   
+  .reserve_form_container h1{
+    color: white;
+  }
+
   .reserve-form {
     display: flex;
     flex-direction: column;

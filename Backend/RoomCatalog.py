@@ -66,5 +66,3 @@ class RoomCatalog():
         for room in self.check_room_status():
             number+=1
         return number
-
-    #def add_room สำหรับupdateเผิ่อมีห้องเพิ่ม 

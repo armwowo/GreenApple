@@ -6,7 +6,6 @@
     align-items: right;
     right: 0;
 }
-
 .newSlider{
     width:330px;
     height: 5px;
@@ -23,7 +22,6 @@
     top: -6px;
 
 }
-
 .box{
     width: 350px;
     height: 200px;
@@ -39,18 +37,10 @@ h4{
     margin:0 0 20px 0;
     color: #2a5c55; ;
 }
-
 .values{
     margin:0;
     font-weight: 500;
 }
-/* small{
-    font-size: 14px;
-    margin-top :8px;
-    display:block;
-
-} */
-
 .bigbox{
     margin: 0;
     width: 100%;

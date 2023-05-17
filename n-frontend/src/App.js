@@ -5,15 +5,7 @@ import Register from "./Register"
 import UserProfile from "./components/Profile"
 import Sabaiplace from "./Sabaiplace"
 import Reserve from "./Reserve"
-import APPLEHOUSE from "./APPLEHOUSE"
-import AdCha from "./Adchariya"
-import Bankum from "./Bankum"
-import BBCourt from "./BBCourt"
-import APHouse from "./APHouse"
-import Buri from "./BuriIris"
-import Allsmile from "./Allsmile"
-import Rimnam from "./Rimnam"
-import Nop from "./Noppakaow"
+import Detail from "./components/Detail"
 import { Route, Routes } from "react-router-dom"
 
 function App() {
@@ -26,16 +18,16 @@ function App() {
           <Route path="/Login" element={<Login/>} />
           <Route path="/Register" element={<Register/>} />
           <Route path="/Profile" element={<UserProfile />} />
-          <Route path="/Sabaiplace" element={<Sabaiplace/>} />
-          <Route path="/APPLEHOUSE" element={<APPLEHOUSE/>} />
-          <Route path="/Adchariya" element={<AdCha/>} />
-          <Route path="/Bankhumkaow48" element={<Bankum/>} />
-          <Route path="/BBCourt" element={<BBCourt/>} />
-          <Route path="/APHouse" element={<APHouse/>} />
-          <Route path="/BuriIris" element={<Buri/>} />
-          <Route path="/Allsmile" element={<Allsmile/>} />
-          <Route path="/Rimnam" element={<Rimnam/>} />
-          <Route path="/Noppakaow" element={<Nop/>} />
+          <Route path = "/Detail/0" element={<Detail id={0} />} />
+          <Route path = "/Detail/1" element={<Detail id={1} />} />
+          <Route path = "/Detail/2" element={<Detail id={2} />} />
+          <Route path = "/Detail/3" element={<Detail id={3} />} />
+          <Route path = "/Detail/4" element={<Detail id={4} />} />
+          <Route path = "/Detail/5" element={<Detail id={5} />} />
+          <Route path = "/Detail/6" element={<Detail id={6} />} />
+          <Route path = "/Detail/7" element={<Detail id={7} />} />
+          <Route path = "/Detail/8" element={<Detail id={8} />} />
+          <Route path = "/Detail/9" element={<Detail id={9} />} />
           <Route path="/Reserve" element={<Reserve/>} />
         </Routes>
       </div>

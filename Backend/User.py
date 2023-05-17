@@ -88,14 +88,3 @@ class User:
     def set_Role(self,role):
         self._role = role
         return "success"
-    
-# def create_user(user_list):
-#     for key,value in Backend.InstanceUser.user_info.items() :
-#         new_user = User(name=Backend.InstanceUser.user_info[key]["name"],
-#                         lastname=Backend.InstanceUser.user_info[key]["last name"],
-#                         email=Backend.InstanceUser.user_info[key]["email"],
-#                         user_name=Backend.InstanceUser.user_info[key]["username"],
-#                         password=Backend.InstanceUser.user_info[key]["password"],
-#                         user_phone=Backend.InstanceUser.user_info[key]["user_phone"])
-        
-#         user_list.append(new_user) #add new_user แต่ละตัวเข้า user_list

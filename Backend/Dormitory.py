@@ -20,6 +20,7 @@ class Dormitory():
         self.__review = []
         self.__Fac  = None
         self.__Roomlist = RoomCatalog()
+        self.__price = []
 
     @property
     def info(self):
@@ -56,13 +57,10 @@ class Dormitory():
     def get_room_rental_list(self):
         return self.__Roomlist.get_room_rental_list()
 
-    def search_fac(self, facility):#พารามิเตอร์เป็น facility ทั้งหมด
-        # search = Dormitory.get_facility(self)
+    def search_fac(self, facility):
         search = self.__Fac
-        # search = "self.__Fac.get_" + facility + "()"
         for i in range(15):
             if facility[i] == 1 and search.list_facilities[i] ==1 :
-                # print("1")
                 pass
             elif facility[i] ==1 and search.list_facilities[i] ==0:
                 return False
@@ -70,3 +68,7 @@ class Dormitory():
     
     def add_review(self,review):
         self.__review.append(review)
+
+    def set_price(self):
+        self.price = self.Roomlist.get_room_rental_list()
+        return "success"

@@ -9,11 +9,9 @@ class Reservation():
         type(self).reservation_id += 1
         self.__id = type(self).reservation_id
         self.__user = user
-        # self.__email = email
         self.__check_in = check_in
         self.__check_out = check_out
         self.__dorm_name = dorm
-        # self.__room_id = room_id
         self.__room = room
         self.__payment = None
         self.__payment_status = False
@@ -60,11 +58,6 @@ class Reservation():
 
     def create_creditpayment(self,card_name,card_number):#หลังจากจองห้องเสร็จ
         self.__payment = CreditPayment(card_name,card_number)
-        
-        # check_out = self.__check_in + timedelta(days = 366)
-        # self.__check_out = check_out
-        
         self.room.set_room_status(False)
         self.__payment_status = True
         return str([{"payment status":self.__payment_status}])
-    

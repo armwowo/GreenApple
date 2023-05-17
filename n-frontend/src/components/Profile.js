@@ -19,7 +19,6 @@ function UserProfile(){
             setReservation(res.Reservation)})
         
         setStatus(true)
-        
     }
     
     useEffect(()=>{ 
@@ -53,6 +52,5 @@ function UserProfile(){
             </div>
         </div>
     )
-
 }
 export default UserProfile
